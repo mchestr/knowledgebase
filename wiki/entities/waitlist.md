@@ -23,6 +23,7 @@ The owner's reservation-watcher app (github.com/mchestr/waitlist, formerly Ferry
 - Database `waitlist` on `postgres17`, with login roles `waitlist_web` and `waitlist_control` ([[home-cluster-waitlist-readme]]).
 - `app/helmrelease.yaml` is the only copy of its Kubernetes config. The app repository has none ([[home-cluster-waitlist-readme]]).
 - Checkout key rotation needs a 26-hour wait between steps ([[home-cluster-waitlist-readme]]).
+- Commit `470f9f8` removed the waitlist README from the repository. Its runbooks are in git history at `e36a8c8` ([[home-cluster-waitlist-readme]]).
 
 ## Related
 

@@ -41,6 +41,7 @@ scripts/lint.py       Structural lint. CI runs it.
 6. On a source page, set `source` to the path of the raw file, for example `raw/2026-10-18-article.md`.
 7. Keep one source page for each document. When a new version of the document arrives, save it as a new raw file.
    Set `source` to the new file. Move the old path to the `previous_sources` list, newest first.
+   When a document is deleted upstream, keep its raw file and source page. Set `removed_upstream` to the commit or date.
 8. Make one page for one thing. Update the existing page before you create a new page.
 9. Use one name for one thing. Record other names in an `aliases` frontmatter list.
 

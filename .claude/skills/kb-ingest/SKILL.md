@@ -67,3 +67,5 @@ Do these steps when a source page already exists for the document.
 5. Update the source page for the changes. Note the new version in its "Data and quotes" section.
 6. Update the entity and concept pages that the changes affect. Remove contradiction and `Unverified` callouts that the new version settles.
 7. Do the "Write" steps 6 to 9 and the "Check" steps.
+
+If the document was deleted upstream, keep its raw file and source page. Set `removed_upstream` in the frontmatter to the commit or date. Add a `[!note] Removed upstream` callout that says where the old content is.

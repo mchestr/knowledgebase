@@ -1,12 +1,13 @@
 ---
 title: home-cluster docs — Home Network Setup
 type: source
-source: raw/2026-10-18-home-cluster-networking-e36a8c8.md
+source: raw/2026-10-18-home-cluster-networking-fa79b82.md
 previous_sources:
+  - raw/2026-10-18-home-cluster-networking-e36a8c8.md
   - raw/2026-10-18-home-cluster-networking.md
 author: Mike Chester
-url: https://github.com/mchestr/home-cluster/blob/e36a8c83c6e8a21f1dfffbb167aee922365a2917/docs/src/notes/networking.md
-commit: e36a8c8
+url: https://github.com/mchestr/home-cluster/blob/fa79b82c8b6a07463cea837fcda6493c1aed4179/docs/src/notes/networking.md
+commit: fa79b82
 created: 2026-10-18
 updated: 2026-10-18
 tags: [home-cluster, networking]
@@ -42,10 +43,12 @@ Management: PiKVM V4 Mini, CyberPower UPS, UniFi PDU Pro.
 
 ![[thunderbolt.png]]
 
+Version `fa79b82` names `default/radicale` and `waitlist` as the reference NetworkPolicy implementations. Versions `2ce9069` to `e36a8c8` named `home-assistant` and `waitlist`.
+
 ## Connections
 
-- [[home-cluster]], [[envoy-gateway]], [[ms-01]].
+- [[home-cluster]], [[envoy-gateway]], [[ms-01]], [[internal-vs-external-gateway]].
 
 ## Open questions
 
-- The source says the external-gateway NetworkPolicy work is not complete. Only `home-assistant` and `waitlist` have it.
+- The source says the external-gateway NetworkPolicy work is not complete. See [[security-posture]] for the current coverage.

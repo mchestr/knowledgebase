@@ -1,10 +1,12 @@
 ---
 title: home-cluster Authelia OAuth2 secrets README
 type: source
-source: raw/2026-10-18-home-cluster-authelia-readme.md
+source: raw/2026-10-18-home-cluster-authelia-readme-fa79b82.md
+previous_sources:
+  - raw/2026-10-18-home-cluster-authelia-readme.md
 author: Mike Chester
-url: https://github.com/mchestr/home-cluster/blob/e36a8c83c6e8a21f1dfffbb167aee922365a2917/kubernetes/apps/default/authelia/app/README.md
-commit: e36a8c8
+url: https://github.com/mchestr/home-cluster/blob/fa79b82c8b6a07463cea837fcda6493c1aed4179/kubernetes/apps/default/authelia/app/README.md
+commit: fa79b82
 created: 2026-10-18
 updated: 2026-10-18
 tags: [home-cluster, auth, secrets]
@@ -27,7 +29,7 @@ How to make an OIDC client for a new app in [[authelia]] and store it in 1Passwo
 
 ## Data and quotes
 
-The waitlist README is the full worked example ([[home-cluster-waitlist-readme]]).
+The worked example is `kubernetes/apps/waitlist/waitlist/app/`. Version `e36a8c8` pointed to the waitlist README, which was removed in `470f9f8` ([[home-cluster-waitlist-readme]]).
 
 ## Connections
 

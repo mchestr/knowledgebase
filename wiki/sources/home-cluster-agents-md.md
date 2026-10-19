@@ -45,4 +45,4 @@ Guidance for AI coding agents in the [[home-cluster]] repository. `CLAUDE.md` im
 
 ## Open questions
 
-- It names `radicale` as a reference policy. [[home-cluster-networking]] names `home-assistant`. See [[internal-vs-external-gateway]].
+- None. Docs version `fa79b82` now also names `radicale`.

@@ -34,7 +34,7 @@ Keep entries in alphabetical order inside each section.
 - [[home-cluster-troubleshooting]] — home-cluster docs: diagnostics for pods, Flux, nodes, network, DNS, certificates.
 - [[home-cluster-upgrade-procedures]] — home-cluster docs: tuppr, Renovate automerge, rollback, stuck upgrades.
 - [[home-cluster-volsync-restore-skill]] — home-cluster agent skill: safe VolSync restore and data check.
-- [[home-cluster-waitlist-readme]] — home-cluster: Waitlist app parts, guard rails, key rotation, Ferry Watch runbook.
+- [[home-cluster-waitlist-readme]] — home-cluster: Waitlist parts, guard rails, runbooks (removed upstream in 470f9f8).
 - [[home-cluster-workstation-setup]] — home-cluster docs: Homebrew tools, kubectl plugins, kubeconfig and talosconfig.
 
 ## Entities

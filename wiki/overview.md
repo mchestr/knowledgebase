@@ -24,5 +24,4 @@ The knowledge base has one subject so far: the [[home-cluster]], a three-node Ku
 
 - When will the CNPG Clusters move from `barmanObjectStore` to the Barman Cloud Plugin? See [[cloudnative-pg]].
 - Six external apps have no NetworkPolicy, and `home-assistant` lacks the `kube-apiserver` rule. Are these planned? See [[security-posture]].
-- Which page is right about the reference policy: the docs (`home-assistant`) or AGENTS.md (`radicale`)? The code agrees with AGENTS.md. See [[internal-vs-external-gateway]].
 - Do Autobrr, Grafana, Immich, Paperless and Windmill have group-limited `authorization_policies` yet? See [[lldap]].

@@ -45,3 +45,10 @@ Find recent entries with `grep '^## \[' wiki/log.md | tail -5`.
 - Contradiction: NetworkPolicy reference app (docs say home-assistant, AGENTS.md and code say radicale).
 - Lint: wikilink targets now drop the trailing backslash of `[[page\|alias]]` in tables.
 
+## [2026-10-18] ingest | home-cluster at fa79b82
+
+- Source: home-cluster commits 470f9f8 "chore(waitlist): remove the README" and fa79b82 "docs(networking): name radicale as the NetworkPolicy reference".
+- New raw files: `raw/2026-10-18-home-cluster-{networking,application-deployment,authelia-readme}-fa79b82.md`.
+- Updated sources: home-cluster-networking, home-cluster-application-deployment, home-cluster-authelia-readme (new versions), home-cluster-waitlist-readme (removed upstream), home-cluster-agents-md.
+- Updated: internal-vs-external-gateway and security-posture (contradiction settled: radicale is the reference), waitlist, overview, index.
+- Schema: added the `removed_upstream` rule to CLAUDE.md and the kb-ingest skill.

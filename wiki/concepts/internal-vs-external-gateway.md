@@ -29,12 +29,10 @@ Rules ([[home-cluster-networking]], [[home-cluster-application-deployment]]):
 3. Never put admin UIs, shells or editors on `envoy-external`.
 4. Give each external app a NetworkPolicy that admits only the external gateway's Envoy pods.
 5. Add a CiliumNetworkPolicy for the `kube-apiserver` entity, because cross-node gateway traffic is SNATed to a control-plane node.
-6. Copy the policy from `default/radicale` or `waitlist` ([[home-cluster-agents-md]]). App-template writes both policies under the `networkpolicies:` values key ([[home-cluster-app-inventory]]).
+6. Copy both policies from `kubernetes/apps/default/radicale/app/helmrelease.yaml` or from `waitlist` ([[home-cluster-application-deployment]], [[home-cluster-agents-md]]). App-template writes both policies under the `networkpolicies:` values key ([[home-cluster-app-inventory]]).
 7. For an internal app whose own login should replace the Authelia prompt, add it to the Authelia `bypass` list.
 
-> [!warning] Contradiction
-> [[home-cluster-networking]] and [[home-cluster-application-deployment]] name `home-assistant` as a reference implementation.
-> [[home-cluster-agents-md]] names `default/radicale`. The manifests agree with AGENTS.md: `home-assistant` has no `kube-apiserver` rule ([[home-cluster-app-inventory]]).
+`home-assistant` has the gateway policy but not the `kube-apiserver` rule, so it is not a complete example. Docs version `fa79b82` settled an earlier conflict about this ([[home-cluster-networking]]).
 
 External apps in the sources: Plex, Immich, Home Assistant, Radicale, Authelia. Internal apps: Frigate, Sonarr, Radarr ([[home-cluster-networking]]). The full list and policy coverage are in [[security-posture]] and [[app-inventory]].
 

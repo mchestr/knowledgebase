@@ -1,12 +1,13 @@
 ---
 title: home-cluster docs — Application Deployment
 type: source
-source: raw/2026-10-18-home-cluster-application-deployment-eff692f.md
+source: raw/2026-10-18-home-cluster-application-deployment-fa79b82.md
 previous_sources:
+  - raw/2026-10-18-home-cluster-application-deployment-eff692f.md
   - raw/2026-10-18-home-cluster-application-deployment.md
 author: Mike Chester
-url: https://github.com/mchestr/home-cluster/blob/eff692f9be7871762ca8e5088443257bdcd458c3/docs/src/notes/application-deployment.md
-commit: eff692f
+url: https://github.com/mchestr/home-cluster/blob/fa79b82c8b6a07463cea837fcda6493c1aed4179/docs/src/notes/application-deployment.md
+commit: fa79b82
 created: 2026-10-18
 updated: 2026-10-18
 tags: [home-cluster, flux, runbook]
@@ -30,14 +31,14 @@ How to add an app to the [[home-cluster]] with [[flux]]: the repository layout, 
 - `kubernetes/flux/cluster/ks.yaml` patches every HelmRelease to roll back a failed upgrade. Apps with database migrations set `upgrade.strategy.name: RetryOnFailure`.
 - Add `./<app>/ks.yaml` to the namespace `kustomization.yaml`. New namespace folders are found automatically.
 - Pull request CI builds every Kustomization with flux-local, renders the Helm diff and posts a risk assessment.
-- Put an app on `envoy-external` only when it has its own login. Give it a NetworkPolicy that admits only that gateway. See [[internal-vs-external-gateway]].
+- Put an app on `envoy-external` only when it has its own login. Give it a NetworkPolicy that admits only that gateway and a CiliumNetworkPolicy that admits the `kube-apiserver` entity. Copy both from `kubernetes/apps/default/radicale/app/helmrelease.yaml`. See [[internal-vs-external-gateway]].
 - Manage: `task kubernetes:reconcile`, `flux get hr|ks`, `flux suspend|resume`.
 
 ## Data and quotes
 
 > "Renovate automerges minor, patch and digest updates once the risk assessment passes and, where the registry gives a release date, once they are 2 days old"
 
-Version `eff692f` added the 2-day condition to this sentence. The rest of the page did not change from `2ce9069`.
+Version `eff692f` added the 2-day condition to this sentence. Version `fa79b82` changed the policy example from `home-assistant` to `radicale` and added the CiliumNetworkPolicy.
 
 ## Connections
 

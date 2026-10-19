@@ -8,9 +8,13 @@ commit: e36a8c8
 created: 2026-10-18
 updated: 2026-10-18
 tags: [home-cluster, waitlist, runbook, security]
+removed_upstream: 470f9f8
 ---
 
 # home-cluster Waitlist README
+
+> [!note] Removed upstream
+> Commit `470f9f8` deleted this README. Its content stays in git history: `git show e36a8c83c:kubernetes/apps/waitlist/waitlist/README.md`. The facts below describe the app at `e36a8c8`.
 
 ## Summary
 

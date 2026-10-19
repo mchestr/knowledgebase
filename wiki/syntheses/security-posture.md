@@ -25,10 +25,7 @@ The [[home-cluster]] has two layers in front of apps: the gateway choice and the
 
 Source: [[home-cluster-app-inventory]]. `AGENTS.md` says "not every app has one yet" ([[home-cluster-agents-md]]).
 
-> [!warning] Contradiction
-> [[home-cluster-networking]] and [[home-cluster-application-deployment]] name `home-assistant` and `waitlist` as the reference implementations, and say to copy the policy from `home-assistant`.
-> [[home-cluster-agents-md]] names `default/radicale` and `waitlist`.
-> The manifests agree with AGENTS.md: `home-assistant` has no `kube-apiserver` rule ([[home-cluster-app-inventory]]).
+The reference implementations are `default/radicale` and `waitlist` ([[home-cluster-agents-md]], [[home-cluster-networking]]). `home-assistant` has no `kube-apiserver` rule, so it is not a complete example ([[home-cluster-app-inventory]]).
 
 > [!question] Unverified
 > The sources do not say whether `home-assistant` loses cross-node gateway traffic without the `kube-apiserver` rule.
@@ -57,7 +54,7 @@ WARNING: Before you add a second user to lldap, give Autobrr, Grafana, Immich, P
 
 ## Analysis
 
-The highest-value fixes in the sources are: add policies to the six external apps that have none; add the `kube-apiserver` rule to `home-assistant`; add group limits to the five OIDC clients before any second user exists. The docs should also name `radicale` as the reference implementation.
+The highest-value fixes in the sources are: add policies to the six external apps that have none; add the `kube-apiserver` rule to `home-assistant`; add group limits to the five OIDC clients before any second user exists.
 
 ## Sources
 
