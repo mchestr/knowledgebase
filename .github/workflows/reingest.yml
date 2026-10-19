@@ -1,0 +1,78 @@
+name: reingest
+
+on:
+  schedule:
+    - cron: "0 7 * * 0"
+  workflow_dispatch:
+
+concurrency:
+  group: reingest
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  reingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Save new versions of tracked sources
+        id: fetch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          yq --version
+          python scripts/sources.py fetch --plan .reingest.json
+
+      - name: Update the wiki
+        if: steps.fetch.outputs.items != '0'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ github.token }}
+          prompt: |
+            Follow .claude/skills/kb-ingest/SKILL.md in unattended mode, with the plan in .reingest.json.
+            Read CLAUDE.md first. Write the report to .reingest-report.md. Do not commit or push.
+          claude_args: |
+            --max-turns 120
+            --allowedTools Read,Write,Edit,Glob,Grep,Bash(python3 scripts/lint.py:*),Bash(python scripts/lint.py:*),Bash(date:*)
+
+      # The PR merges without review, so it must pass the lint and touch only the expected paths.
+      - name: Check the changes
+        run: |
+          python scripts/lint.py
+          python scripts/sources.py verify --plan .reingest.json
+
+      - name: Write the PR body
+        run: |
+          [ -f .reingest-report.md ] || echo "No tracked file changed. Moved \`ingested\` in sources.json to the newest commit." > .reingest-report.md
+
+      - name: Open pull request
+        id: pr
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: reingest/weekly
+          delete-branch: true
+          add-paths: |
+            wiki/
+            raw/
+            sources.json
+          commit-message: "ingest: weekly re-ingest of tracked sources"
+          title: "Weekly re-ingest of tracked sources"
+          body-path: .reingest-report.md
+          labels: kb-reingest
+
+      - name: Merge pull request
+        if: steps.pr.outputs.pull-request-number
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh pr merge "${{ steps.pr.outputs.pull-request-number }}" --squash --delete-branch

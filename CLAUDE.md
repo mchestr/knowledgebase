@@ -28,6 +28,9 @@ wiki/concepts/        Ideas, methods, terms, theories.
 wiki/syntheses/       Comparisons, analyses and filed answers to queries.
 templates/            Page templates for each page type.
 scripts/lint.py       Structural lint. CI runs it.
+scripts/sources.py    Finds new versions of tracked sources and saves them to raw/.
+scripts/inventory.py  Generates the home-cluster app inventory (needs yq).
+sources.json          Tracked sources and the last ingested version of each.
 .claude/skills/       The kb-ingest, kb-query and kb-lint skills.
 ```
 
@@ -95,3 +98,10 @@ Use the skill for each operation. Each skill has its full procedure.
 2. Fix all errors before you finish a task. Errors fail CI.
 3. The `lint` workflow runs the script on each push, each pull request, and each day.
 4. The `llm-lint` workflow runs the `kb-lint` skill each week and opens a pull request.
+
+## Tracked sources
+
+1. List each source to re-ingest in `sources.json`. The `reingest` workflow checks them each Sunday.
+2. The workflow runs `scripts/sources.py fetch`, then `kb-ingest` in unattended mode, then the lint.
+3. It merges the result without review. Check `wiki/log.md` and the merged pull requests.
+4. Run `python3 scripts/sources.py check` to see pending changes without a change to any file.

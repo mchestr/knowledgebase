@@ -56,6 +56,7 @@ python3 scripts/lint.py --format markdown  # also: json
 | --- | --- | --- |
 | `lint` | Each push to `main`, each PR, each day at 06:00 UTC | Runs `scripts/lint.py`. A failed daily run opens or updates an issue with the `kb-lint` label. The next passing daily run closes it. |
 | `llm-lint` | Each Monday at 07:00 UTC, or manual | Runs the `kb-lint` skill with Claude Code. Fixes safe problems and opens a PR with the report. |
+| `reingest` | Each Sunday at 07:00 UTC, or manual | Saves new versions of the sources in `sources.json`, runs `kb-ingest` in unattended mode, checks the lint and the changed paths, then opens and merges a PR. Claude runs only when a tracked file changed. |
 
 ### Set up `llm-lint`
 

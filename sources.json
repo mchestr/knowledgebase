@@ -1,0 +1,28 @@
+[
+  {
+    "repo": "mchestr/home-cluster",
+    "branch": "main",
+    "slug_prefix": "home-cluster",
+    "ingested": "fa79b82c8b6a07463cea837fcda6493c1aed4179",
+    "paths": [
+      "README.md",
+      "AGENTS.md",
+      "docs/src/notes/*.md",
+      ".claude/agents/*.md",
+      ".claude/skills/*/SKILL.md",
+      ".github/renovate-risk/pull-request.md",
+      "kubernetes/**/README.md",
+      "kubernetes/apps/ai/claude-code/app/resources/CLAUDE.md",
+      "terraform/README.md"
+    ],
+    "exclude": [],
+    "generators": [
+      {
+        "name": "app-inventory",
+        "page": "home-cluster-app-inventory",
+        "trigger": ["kubernetes/apps/*", "kubernetes/components/*"],
+        "generated": "e36a8c83c6e8a21f1dfffbb167aee922365a2917"
+      }
+    ]
+  }
+]

@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python3 scripts/lint.py:*)"
+      "Bash(python3 scripts/lint.py:*)",
+      "Bash(python3 scripts/sources.py check:*)"
     ]
   }
 }
