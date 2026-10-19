@@ -5,6 +5,8 @@ description: Ingest a new source into the knowledge base wiki. Use when the user
 
 # kb-ingest
 
+The knowledge base is the current repository. If the current folder is not the knowledge base, use `/Users/mchestr/code/knowledgebase`. All paths in this skill start at that folder.
+
 Turn one source into wiki pages. One source can change 10 to 15 pages. Follow the rules in `CLAUDE.md`.
 
 ## Get the source

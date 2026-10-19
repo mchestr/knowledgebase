@@ -5,6 +5,8 @@ description: Health-check the knowledge base wiki for structural and content pro
 
 # kb-lint
 
+The knowledge base is the current repository. If the current folder is not the knowledge base, use `/Users/mchestr/code/knowledgebase`. All paths in this skill start at that folder.
+
 Find problems in the wiki and fix the safe ones. Follow the rules in `CLAUDE.md`.
 
 ## Structural pass

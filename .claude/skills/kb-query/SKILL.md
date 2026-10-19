@@ -5,6 +5,8 @@ description: Answer a question from the knowledge base wiki with citations, and 
 
 # kb-query
 
+The knowledge base is the current repository. If the current folder is not the knowledge base, use `/Users/mchestr/code/knowledgebase`. All paths in this skill start at that folder.
+
 Answer from the wiki, not from memory. Follow the rules in `CLAUDE.md`.
 
 ## Find
