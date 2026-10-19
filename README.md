@@ -37,12 +37,12 @@ python3 scripts/lint.py --format markdown  # also: json
 
 | Severity | Code | Meaning |
 | --- | --- | --- |
-| error | `frontmatter-missing`, `frontmatter-invalid`, `missing-field` | Page frontmatter is absent or incomplete. |
+| error | `frontmatter-missing`, `frontmatter-invalid`, `missing-field`, `bad-field` | Page frontmatter is absent, incomplete or has the wrong value type. |
 | error | `bad-type`, `wrong-dir` | `type` is not valid, or the page is in the wrong directory. |
 | error | `bad-date` | Date is not `YYYY-MM-DD`, is in the future, or `updated` is before `created`. |
 | error | `duplicate-name` | Two pages have the same file name, so links are ambiguous. |
 | error | `broken-link` | A wikilink or embed points to nothing. |
-| error | `missing-source` | A source page refers to a file that is not in `raw/`. |
+| error | `missing-source` | A source page `source` or `previous_sources` path is not in `raw/`. |
 | error | `not-in-index` | A page is not listed in `wiki/index.md`. |
 | error | `log-format`, `log-order` | A `wiki/log.md` heading has the wrong format or date order. |
 | warning | `orphan` | No page links to this page. |

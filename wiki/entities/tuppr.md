@@ -16,7 +16,7 @@ A controller from home-operations that upgrades [[talos-linux]] and Kubernetes o
 
 ## Facts
 
-- Target versions: `kubernetes/apps/system-upgrade/tuppr/upgrades/talos.yaml` and `kubernetes.yaml`. [[renovate]] opens PRs to change them. Merging the PR starts the upgrade ([[home-cluster-upgrade-procedures]]).
+- Target versions: `kubernetes/apps/system-upgrade/tuppr/upgrades/talos.yaml` and `kubernetes.yaml`. The cluster runs Talos 1.14 and Kubernetes 1.37. [[renovate]] opens PRs to change them. Merging the PR starts the upgrade ([[home-cluster-upgrade-procedures]]).
 - Before each node, tuppr waits for [[rook-ceph]] `HEALTH_OK` and for no running [[volsync]] backup ([[home-cluster-upgrade-procedures]]).
 - Talos upgrades power-cycle each node, so Ceph is degraded for a short time ([[home-cluster-upgrade-procedures]]).
 - Bootstrap gets the Talos ISO version from the same `talos.yaml` ([[home-cluster-bootstrap]]).

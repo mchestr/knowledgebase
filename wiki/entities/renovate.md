@@ -16,15 +16,14 @@ Keeps the chart, image, Talos and Kubernetes versions in the [[home-cluster]] re
 
 ## Facts
 
-- Automerge: minor, patch and digest updates. PR for review: majors, `0.x` minors, core infrastructure (CNI, storage, Flux, Talos/Kubernetes, app-template, cert-manager, external-secrets) and apps with database migrations ([[home-cluster-upgrade-procedures]]).
+- Automerge: minor, patch and digest updates, after the flux-local risk assessment passes ([[home-cluster-application-deployment]]).
+- Minimum age: 2 days for Docker Hub, GitHub, Helm repositories and npm. 3 days for GitHub Actions. No minimum age for images and OCI charts on other registries, because they have no release dates ([[home-cluster-upgrade-procedures]]).
+- PR for review: majors, `0.x` minors, core infrastructure (CNI, storage, Flux, Talos/Kubernetes, app-template, cert-manager, external-secrets) and apps with database migrations ([[home-cluster-upgrade-procedures]]).
 - Rules: `.github/renovate/autoMerge.json5` ([[home-cluster-upgrade-procedures]]).
 - CI builds each Renovate branch with flux-local and risk-assesses the rendered diff before automerge ([[home-cluster-readme]]).
 - Renovate bumps the [[tuppr]] target versions and the Talos `extraManifests` URLs ([[home-cluster-upgrade-procedures]]).
 
-> [!warning] Contradiction
-> [[home-cluster-application-deployment]] says Renovate automerges "once the risk assessment passes".
-> [[home-cluster-upgrade-procedures]] says it automerges "once they're 2 days old".
-> Both conditions can apply. Neither page states both. Check `.github/renovate/autoMerge.json5`.
+Both conditions apply. Version `eff692f` of the docs settled an earlier conflict between the two pages.
 
 ## Commands
 

@@ -17,3 +17,13 @@ Find recent entries with `grep '^## \[' wiki/log.md | tail -5`.
 - Created syntheses: triage-runbook, node-failure-runbook, complete-cluster-loss-runbook.
 - Updated: index, overview.
 - Contradictions: NAS model (home-nas), Renovate automerge condition (renovate). Unverified: current Talos version (talos-linux).
+
+## [2026-10-18] ingest | home-cluster docs at eff692f
+
+- Source: home-cluster commit eff692f, "docs: align Renovate automerge rules and Talos version with the repo". Only `application-deployment.md` and `upgrade-procedures.md` changed.
+- New raw files: `raw/2026-10-18-home-cluster-application-deployment-eff692f.md`, `raw/2026-10-18-home-cluster-upgrade-procedures-eff692f.md`.
+- Updated sources: home-cluster-application-deployment, home-cluster-upgrade-procedures (`source` now points to the new raw files; old files in `previous_sources`).
+- Updated: renovate (contradiction settled), talos-linux (version confirmed: Talos 1.14, Kubernetes 1.37), tuppr, overview, index.
+- Still open: NAS model (home-nas).
+- Schema: added the `previous_sources` rule to CLAUDE.md, the lint and the kb-ingest skill.
+

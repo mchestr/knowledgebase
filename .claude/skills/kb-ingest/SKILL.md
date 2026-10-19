@@ -55,3 +55,15 @@ Skip the "Discuss" steps when the user asks for a batch ingest or the run is una
 1. Ingest the sources one at a time, in date order.
 2. Do all steps for one source before you start the next source.
 3. Run the lint once at the end of the batch.
+
+## Ingest a new version of a source
+
+Do these steps when a source page already exists for the document.
+
+1. Find what changed since the old version, for example with a git diff of the two commits.
+2. If nothing changed, tell the user and stop.
+3. Save the new version as a new raw file. Add the commit or version to the name, for example `raw/2026-10-18-<slug>-<commit>.md`.
+4. On the source page, set `source` to the new file. Add the old path at the top of the `previous_sources` list.
+5. Update the source page for the changes. Note the new version in its "Data and quotes" section.
+6. Update the entity and concept pages that the changes affect. Remove contradiction and `Unverified` callouts that the new version settles.
+7. Do the "Write" steps 6 to 9 and the "Check" steps.

@@ -184,12 +184,18 @@ def lint(today: dt.date) -> list[Issue]:
 
         if ptype == "source":
             src = meta.get("source")
+            previous = meta.get("previous_sources") or []
             if not src:
                 add("error", "missing-field", page.path, "source pages need a 'source' field (path under raw/)")
-            elif not str(src).startswith("raw/") or not (ROOT / src).is_file():
-                add("error", "missing-source", page.path, f"source file '{src}' does not exist under raw/")
-            else:
-                source_refs.add(str(src))
+            if not isinstance(previous, list):
+                add("error", "bad-field", page.path, "'previous_sources' must be a list")
+                previous = []
+            paths = ([("source", src)] if src else []) + [("previous_sources", p) for p in previous]
+            for key, value in paths:
+                if not isinstance(value, str) or not value.startswith("raw/") or not (ROOT / value).is_file():
+                    add("error", "missing-source", page.path, f"{key} file '{value}' does not exist under raw/")
+                else:
+                    source_refs.add(value)
 
     files = {p.name for base in (RAW, WIKI) for p in base.rglob("*") if p.is_file()}
     inbound: dict[str, set[str]] = defaultdict(set)

@@ -39,8 +39,10 @@ scripts/lint.py       Structural lint. CI runs it.
 4. Set `type` to `overview`, `source`, `entity`, `concept` or `synthesis`. Put the page in the matching directory.
 5. Write dates as `YYYY-MM-DD`. Set `updated` to today each time you change the page.
 6. On a source page, set `source` to the path of the raw file, for example `raw/2026-10-18-article.md`.
-7. Make one page for one thing. Update the existing page before you create a new page.
-8. Use one name for one thing. Record other names in an `aliases` frontmatter list.
+7. Keep one source page for each document. When a new version of the document arrives, save it as a new raw file.
+   Set `source` to the new file. Move the old path to the `previous_sources` list, newest first.
+8. Make one page for one thing. Update the existing page before you create a new page.
+9. Use one name for one thing. Record other names in an `aliases` frontmatter list.
 
 ## Links and citations
 

@@ -1,10 +1,12 @@
 ---
 title: home-cluster docs — Application Deployment
 type: source
-source: raw/2026-10-18-home-cluster-application-deployment.md
+source: raw/2026-10-18-home-cluster-application-deployment-eff692f.md
+previous_sources:
+  - raw/2026-10-18-home-cluster-application-deployment.md
 author: Mike Chester
-url: https://github.com/mchestr/home-cluster/blob/2ce9069c102d7eda4c430078c05a2c400befe730/docs/src/notes/application-deployment.md
-commit: 2ce9069
+url: https://github.com/mchestr/home-cluster/blob/eff692f9be7871762ca8e5088443257bdcd458c3/docs/src/notes/application-deployment.md
+commit: eff692f
 created: 2026-10-18
 updated: 2026-10-18
 tags: [home-cluster, flux, runbook]
@@ -33,7 +35,9 @@ How to add an app to the [[home-cluster]] with [[flux]]: the repository layout, 
 
 ## Data and quotes
 
-> "Renovate automerges minor, patch and digest updates once the risk assessment passes"
+> "Renovate automerges minor, patch and digest updates once the risk assessment passes and, where the registry gives a release date, once they are 2 days old"
+
+Version `eff692f` added the 2-day condition to this sentence. The rest of the page did not change from `2ce9069`.
 
 ## Connections
 
@@ -41,4 +45,4 @@ How to add an app to the [[home-cluster]] with [[flux]]: the repository layout, 
 
 ## Open questions
 
-- The automerge rule here does not mention the 2-day wait in [[home-cluster-upgrade-procedures]]. See [[renovate]].
+- None. Version `eff692f` settled the automerge conflict with [[home-cluster-upgrade-procedures]].

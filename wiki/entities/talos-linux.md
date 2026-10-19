@@ -24,9 +24,7 @@ The immutable, API-driven Kubernetes operating system on all [[home-cluster]] no
 - Talos keeps the previous install. Select it in the boot menu to roll back ([[home-cluster-upgrade-procedures]]).
 - A reset wipes the `EPHEMERAL` partition, which holds `/var/mnt/extra` and all `openebs-hostpath` volumes ([[home-cluster-disaster-recovery]]).
 - When a node with an empty etcd folder joins, Talos removes the old etcd member with the same hostname ([[home-cluster-disaster-recovery]]).
-
-> [!question] Unverified
-> The current Talos version is not stated. [[home-cluster-node-management]] describes Talos 1.14 behavior. The manual upgrade example in [[home-cluster-upgrade-procedures]] uses `v1.13.10`.
+- Current versions: Talos 1.14 and Kubernetes 1.37. The [[tuppr]] target files hold the exact versions ([[home-cluster-upgrade-procedures]]).
 
 ## Commands
 

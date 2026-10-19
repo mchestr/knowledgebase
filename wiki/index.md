@@ -35,9 +35,9 @@ Keep entries in alphabetical order inside each section.
 - [[home-nas]] — NAS for database dumps; README and networking docs disagree on the model.
 - [[kube-prometheus-stack]] — Prometheus, Alertmanager and Grafana; 14-day retention; Watchdog to Healthchecks.io.
 - [[ms-01]] — Node hardware (m0, m1, m2); IPs and Secure Boot setup.
-- [[renovate]] — Dependency bot; automerge rules for minor, patch and digest updates.
+- [[renovate]] — Dependency bot; automerge after risk assessment and a 2-day minimum age.
 - [[rook-ceph]] — Distributed block storage on 3 NVMe OSDs; health and OSD procedures.
-- [[talos-linux]] — Node OS; config files, Talos commands, rollback.
+- [[talos-linux]] — Node OS (1.14, Kubernetes 1.37); config files, Talos commands, rollback.
 - [[tuppr]] — Automated Talos and Kubernetes upgrades gated on Ceph and VolSync.
 - [[udm-pro-max]] — Gateway router; BGP peer ASN 64513, internal DNS, IoT firewall.
 - [[victorialogs]] — Log store that replaced Loki; Fluent Bit collection; VMRule log alerts.
