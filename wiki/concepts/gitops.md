@@ -16,6 +16,7 @@ A way to run a system where Git holds the desired state and a controller in the 
 ## Details
 
 - A change is a commit. Pull request CI builds each Kustomization with flux-local and posts a risk assessment of the rendered diff ([[home-cluster-application-deployment]]).
+- An AI agent rates each PR before automerge ([[renovate-risk-review]]).
 - A version bump is a [[renovate]] PR. Merging a [[tuppr]] version PR is the Talos or Kubernetes upgrade ([[home-cluster-upgrade-procedures]]).
 - Recovery from a deleted resource is a reconcile: `task kubernetes:reconcile` ([[home-cluster-disaster-recovery]]).
 - Rollback is `git revert`, except for apps with database migrations ([[home-cluster-upgrade-procedures]]).

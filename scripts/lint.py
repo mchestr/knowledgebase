@@ -203,7 +203,8 @@ def lint(today: dt.date) -> list[Issue]:
     cites_source: set[str] = set()
     for page in pages.values():
         for target, line, embed in page.links:
-            target = target.split("/")[-1]
+            # Obsidian needs [[page\|alias]] inside tables, which leaves a trailing backslash.
+            target = target.rstrip("\\").split("/")[-1]
             if target.endswith(".md"):
                 target = target[:-3]
             if embed or Path(target).suffix.lower() in ASSET_EXTS:

@@ -20,13 +20,17 @@ Mike Chester's home Kubernetes cluster and the Git repository that defines it (g
 - Network: [[cilium]] CNI with BGP LoadBalancer IPs to the [[udm-pro-max]] ([[bgp-load-balancing]]). Ingress through [[envoy-gateway]] with an internal and an external gateway ([[internal-vs-external-gateway]]) ([[home-cluster-networking]]).
 - Storage: [[rook-ceph]] on 3 × 2TB NVMe over the [[thunderbolt-ring-network]]. `openebs-hostpath` for node-local volumes. A UNAS Pro 8 NAS for database dumps ([[home-nas]]).
 - Secrets: 1Password through [[external-secrets]] ([[home-cluster-secrets-management]]).
-- Auth: [[authelia]] with lldap as the user directory ([[home-cluster-readme]]).
+- Auth: [[authelia]] with [[lldap]] as the user directory ([[home-cluster-readme]]).
 - Backups: [[volsync]] and [[cloudnative-pg]] to Cloudflare R2 ([[backup-strategy]]).
 - Upgrades: [[tuppr]] for Talos and Kubernetes. [[renovate]] for charts and images.
 - Observability: [[kube-prometheus-stack]] for metrics and alerts, [[victorialogs]] for logs ([[home-cluster-observability]]).
 - Public domain: `chestr.dev`. Status page: status.chestr.dev.
 - Cloud cost is about $150 each year ([[home-cluster-readme]]).
 - Started from `onedr0p/cluster-template` ([[home-cluster-readme]]).
+- 98 Flux Kustomizations in 17 namespaces at `e36a8c8`. See [[app-inventory]].
+- AI services and agents: [[in-cluster-ai-stack]], [[claude-code-remote-control]], [[renovate-risk-review]].
+- Exposure and gaps: [[security-posture]].
+- Agent conventions: [[home-cluster-agents-md]].
 
 ## Runbooks
 

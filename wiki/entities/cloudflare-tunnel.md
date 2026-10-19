@@ -20,7 +20,7 @@ The only internet entry into the [[home-cluster]]. A `cloudflared` pod holds a t
 - `task bootstrap:apps` applies the tunnel resources in `bootstrap/resources.yaml` ([[home-cluster-bootstrap]]).
 - `CLOUDFLARE_TUNNEL_ID` and `CLOUDFLARE_ACCOUNT_ID` come from the `cluster-secrets` Secret ([[home-cluster-secrets-management]]).
 - Cloudflare also hosts the domains, issues certificates through DNS challenges, and stores backups in R2 ([[home-cluster-readme]]).
-- Terraform in `terraform/` manages Cloudflare ([[home-cluster-readme]]).
+- [[cloudflare-terraform]] manages the tunnel, rulesets and zone settings ([[home-cluster-agents-md]]).
 
 ## Related
 

@@ -16,7 +16,8 @@ Distributed block storage for the [[home-cluster]]. One 2TB NVMe OSD on each nod
 
 ## Facts
 
-- The Rook toolbox pod is disabled. Use the `rook-ceph` kubectl plugin ([[home-cluster-storage-operations]]).
+- The Rook toolbox pod is disabled. Use the `rook-ceph` kubectl plugin ([[home-cluster-storage-operations]], [[home-cluster-rook-ceph-readme]]).
+- The default storage class is `ceph-block` (RWO) ([[home-cluster-agents-md]]).
 - Ceph keeps a copy of all data on each host. With one node down, the other 2 hosts have all data, but the data is degraded until the node returns ([[home-cluster-disaster-recovery]]).
 - A `ceph-block` volume cannot attach to another node while its node is down. Use the out-of-service taint ([[node-failure-runbook]]).
 - [[tuppr]] waits for `HEALTH_OK` before it upgrades each node ([[home-cluster-upgrade-procedures]]).
@@ -39,7 +40,7 @@ Distributed block storage for the [[home-cluster]]. One 2TB NVMe OSD on each nod
 3. Delete its auth: `kubectl rook-ceph ceph auth del osd.<ID>`.
 4. If you retire the node, remove it from CRUSH: `kubectl rook-ceph ceph osd crush remove <nodename>`.
 
-Source: [[home-cluster-storage-operations]].
+Source: [[home-cluster-storage-operations]], [[home-cluster-rook-ceph-readme]].
 
 ## OSD does not join after a disk move
 

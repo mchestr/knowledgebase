@@ -17,6 +17,7 @@ The network storage device next to the [[home-cluster]]. It receives the 4-hourl
 ## Facts
 
 - Model: UniFi UNAS Pro 8 with 4x 28TB disks (112TB raw), UniFi OS ([[home-cluster-readme]], [[home-cluster-networking]]).
+- NFS host for the Postgres dumps: `nebula.chestr.dev:/var/nfs/shared/cluster/apps/postgres-backup-local` ([[home-cluster-waitlist-readme]]).
 - Address: `10.0.40.13` on the server subnet. 10Gb link to the USW-Pro-Aggregation switch ([[home-cluster-networking]]).
 - Version `2ce9069` of the README listed a Synology DS920+. Version `e36a8c8` replaced it with the UNAS Pro 8 ([[home-cluster-readme]]).
 

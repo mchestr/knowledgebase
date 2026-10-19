@@ -18,7 +18,9 @@ The GitOps controller of the [[home-cluster]]. It watches the `kubernetes/` fold
 
 - Bootstrap installs Flux last, after [[cilium]], CoreDNS, cert-manager, [[external-secrets]], kubelet-csr-approver and spegel ([[home-cluster-bootstrap]]).
 - Entry point: `kubernetes/flux/cluster/ks.yaml`. It loads `kubernetes/flux/meta/`, then each namespace under `kubernetes/apps/` ([[home-cluster-application-deployment]]).
-- That entry point also patches every HelmRelease to roll back a failed upgrade ([[home-cluster-application-deployment]]).
+- That entry point also patches every HelmRelease to roll back a failed upgrade and to replace chart CRDs on every upgrade. The Helm timeout is 5 minutes ([[home-cluster-application-deployment]], [[home-cluster-agents-md]]).
+- `kubernetes/components/common/namespace.yaml` has `kustomize.toolkit.fluxcd.io/prune: disabled`, so Flux never deletes a namespace ([[home-cluster-waitlist-readme]]).
+- CI: `flux-local` validates and `flux-diff` posts the diff on each PR that touches `kubernetes/**` ([[home-cluster-agents-md]]).
 - `cluster-secrets` supplies `${VAR}` substitutions such as `CLOUDFLARE_ACCOUNT_ID` ([[home-cluster-secrets-management]]).
 - Most apps use the shared `app-template` chart through `chartRef` ([[app-deployment-pattern]]).
 

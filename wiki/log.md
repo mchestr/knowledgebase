@@ -33,3 +33,15 @@ Find recent entries with `grep '^## \[' wiki/log.md | tail -5`.
 - New raw files: `raw/2026-10-18-home-cluster-readme-e36a8c8.md`, `raw/2026-10-18-home-cluster-networking-e36a8c8.md`.
 - Updated sources: home-cluster-readme, home-cluster-networking (`source` now points to the new raw files; old files in `previous_sources`).
 - Updated: home-nas (contradiction settled; UNAS Pro 8 at 10.0.40.13), home-cluster (removed the unsourced "media" claim), overview, index.
+
+## [2026-10-18] ingest | home-cluster repository prose and app inventory at e36a8c8
+
+- Source: 14 markdown files outside `docs/` (AGENTS.md, Claude agent and skills, renovate-risk prompt, component READMEs) and a generated app inventory of 98 Flux Kustomizations. Skipped: issue and PR templates, the 11-byte CLAUDE.md, all YAML.
+- Created sources: home-cluster-agents-md, -ops-agent, -add-app-skill, -renovate-review-skill, -renovate-risk-prompt, -volsync-restore-skill, -claude-code-readme, -claude-code-agent-instructions, -authelia-readme, -cilium-config-readme, -rook-ceph-readme, -waitlist-readme, -cnpg-component-readme, -terraform-readme, -app-inventory.
+- Created entities: claude-code-remote-control, litellm, memini, lldap, waitlist, gatus, cloudflare-terraform.
+- Created concepts: in-cluster-ai-stack, renovate-risk-review.
+- Created syntheses: security-posture, app-inventory.
+- Updated: home-cluster, authelia, cilium, udm-pro-max, rook-ceph, cloudnative-pg, home-nas, volsync, renovate, flux, talos-linux, cloudflare-tunnel, kube-prometheus-stack, internal-vs-external-gateway, bgp-load-balancing, app-deployment-pattern, gitops, overview, index.
+- Contradiction: NetworkPolicy reference app (docs say home-assistant, AGENTS.md and code say radicale).
+- Lint: wikilink targets now drop the trailing backslash of `[[page\|alias]]` in tables.
+

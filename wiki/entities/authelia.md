@@ -23,9 +23,14 @@ SSO and two-factor authentication for the [[home-cluster]]. It guards every app 
   - one-factor for the `media` group on the *arr apps;
   - `bypass` for apps with their own login;
   - deny for all other requests.
-- Authelia itself is on the external gateway ([[home-cluster-networking]]).
-- OIDC client secrets are generated with the script in `kubernetes/apps/default/authelia/app/README.md` ([[home-cluster-secrets-management]]).
+- Authelia itself is on the external gateway, with no NetworkPolicy in its app path ([[home-cluster-networking]], [[home-cluster-app-inventory]]).
+- Image `authelia/authelia:4.39.28`. It uses the `cnpg` and `dragonfly` components and depends on [[lldap]] and smtp-relay ([[home-cluster-app-inventory]]).
+- [[memini]] `/v1` and `/mcp` bypass Authelia ([[home-cluster-agents-md]]).
+- Authelia enables an OIDC client only when its fields reach `authelia-secret`. A missing field disables sign-in to that app, not Authelia ([[home-cluster-waitlist-readme]]).
+- OIDC client secrets are generated with the script in `kubernetes/apps/default/authelia/app/README.md` ([[home-cluster-secrets-management]]). See [[home-cluster-authelia-readme]] for the steps.
+
+WARNING: Any [[lldap]] account can use every OIDC client that has no group-limited `authorization_policies`. Limit Autobrr, Grafana, Immich, Paperless and Windmill before you add a second user ([[home-cluster-waitlist-readme]]).
 
 ## Related
 
-- [[internal-vs-external-gateway]].
+- [[internal-vs-external-gateway]], [[security-posture]].

@@ -17,6 +17,7 @@ The immutable, API-driven Kubernetes operating system on all [[home-cluster]] no
 ## Facts
 
 - Config: `talos/controlplane.yaml`, node patches in `talos/controlplane/<node>.yaml`, factory schematic in `talos/schematic.yaml` ([[home-cluster-node-management]]).
+- The configs are Jinja2 templates, rendered with `minijinja-cli` and filled with `op inject`. `talosctl apply-config --dry-run` shows a change first ([[home-cluster-agents-md]]).
 - The built-in CNI and CoreDNS are disabled. [[cilium]] and a Flux-managed CoreDNS replace them ([[home-cluster-bootstrap]]).
 - Machine secrets come from 1Password with `op inject` ([[home-cluster-secrets-management]]).
 - `TALOSCONFIG` is `talos/talosconfig`. `task talos:regen-certs` makes it again ([[home-cluster-workstation-setup]]).

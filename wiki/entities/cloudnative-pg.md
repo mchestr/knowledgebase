@@ -22,6 +22,9 @@ The PostgreSQL operator of the [[home-cluster]]. It runs two Clusters, `postgres
 - If the primary is on a failed node, CNPG promotes a replica ([[home-cluster-disaster-recovery]]).
 - Backups: WAL and a daily base backup to R2 at `s3://cloudnative-pg/<serverName>/` (barman). `archive_timeout` is `5min`. The `cnpg` component also writes a pg_dump of each app database to the [[home-nas]] every 4 hours ([[home-cluster-disaster-recovery]]).
 - The `cnpg` component adds a database, `${APP}-pguser-secret`, `${APP}-initdb-secret` and a backup CronJob. `CNPG_NAME` defaults to `postgres17`. Make the credentials in 1Password first ([[home-cluster-application-deployment]]).
+- Credentials: write `<APP>_postgres_username` and `<APP>_postgres_password` (20 letters and digits) to the `cloudnative-pg` 1Password item ([[home-cluster-cnpg-component-readme]]).
+- Extra login roles, such as `waitlist_web` and `waitlist_control`, are managed roles in `cluster17.yaml`, with passwords from `database/cloudnative-pg/roles/`. `ensure: absent` makes CNPG drop a role ([[home-cluster-waitlist-readme]]).
+- Superuser shell on the current primary: `kubectl cnpg psql -n database postgres17` ([[home-cluster-waitlist-readme]]).
 - Apps with database migrations use `RetryOnFailure`, not rollback ([[home-cluster-upgrade-procedures]]).
 - The CNPG 1.30 operator warns that 1.31.0 removes `barmanObjectStore` ([[home-cluster-disaster-recovery]]).
 

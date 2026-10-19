@@ -27,7 +27,7 @@ app/resources/             Config files mounted from ConfigMaps
 
 `dependsOn` values: `onepassword-store` (ExternalSecret), `rook-ceph-cluster` (PVC), `cloudnative-pg-cluster` (database).
 
-Components: `volsync` ([[volsync]]), `cnpg` ([[cloudnative-pg]]), `dragonfly` (Redis-compatible store).
+Components: `volsync` ([[volsync]]), `cnpg` ([[cloudnative-pg]]), `dragonfly` (Redis-compatible store, with a NetworkPolicy and a PodMonitor; use `DRAGONFLY_REPLICAS: 3` to survive a node reboot) ([[home-cluster-agents-md]]).
 
 ## Add an app
 
@@ -42,8 +42,11 @@ Components: `volsync` ([[volsync]]), `cnpg` ([[cloudnative-pg]]), `dragonfly` (R
 9. Make the 1Password item and the `ExternalSecret` ([[external-secrets]]).
 10. List the files in `app/kustomization.yaml`.
 11. Add `./<app>/ks.yaml` to `kubernetes/apps/<namespace>/kustomization.yaml`.
-12. Commit as `feat(<app>): add <app>` and open a PR. CI builds it with flux-local.
-13. After the merge, run `task kubernetes:reconcile` to apply it sooner.
+12. Build it as Flux does: `flux build kustomization <app> --namespace <ns> --path ./kubernetes/apps/<ns>/<app>/app --kustomization-file ./kubernetes/apps/<ns>/<app>/ks.yaml --dry-run` ([[home-cluster-add-app-skill]]).
+13. Commit as `feat(<app>): add <app>` and open a PR. CI builds it with flux-local, posts a flux-diff, and runs the [[renovate-risk-review]] when the PR is not a draft.
+14. After the merge, run `task kubernetes:reconcile` to apply it sooner.
+
+The `add-app` skill does these steps for an agent. Its reference app is `kubernetes/apps/media/tautulli` ([[home-cluster-add-app-skill]]).
 
 Source: [[home-cluster-application-deployment]].
 

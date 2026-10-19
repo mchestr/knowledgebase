@@ -25,4 +25,4 @@ The metrics and alerting stack of the [[home-cluster]]: Prometheus, Alertmanager
 
 ## Related
 
-- [[victorialogs]], [[triage-runbook]].
+- [[victorialogs]], [[gatus]], [[triage-runbook]].
