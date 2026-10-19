@@ -1,0 +1,51 @@
+name: lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  structural:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Lint wiki
+        run: |
+          set -o pipefail
+          python scripts/lint.py --format markdown | tee "$RUNNER_TEMP/lint.md" >> "$GITHUB_STEP_SUMMARY"
+
+      # A failed scheduled run has no PR to show it, so keep one open issue as the alert.
+      - name: Open or update lint issue
+        if: failure() && github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create kb-lint --color D93F0B --description "Wiki lint failures" --force
+          number=$(gh issue list --label kb-lint --state open --json number --jq '.[0].number')
+          if [ -n "$number" ]; then
+            gh issue comment "$number" --body-file "$RUNNER_TEMP/lint.md"
+          else
+            gh issue create --title "Wiki lint failed" --label kb-lint --body-file "$RUNNER_TEMP/lint.md"
+          fi
+
+      - name: Close lint issue
+        if: success() && github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for number in $(gh issue list --label kb-lint --state open --json number --jq '.[].number'); do
+            gh issue close "$number" --comment "Scheduled lint passed."
+          done

@@ -1,0 +1,55 @@
+name: llm-lint
+
+on:
+  schedule:
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+concurrency:
+  group: llm-lint
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  semantic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Run kb-lint skill
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ github.token }}
+          prompt: |
+            Follow .claude/skills/kb-lint/SKILL.md in unattended mode.
+            Read CLAUDE.md first. Today is the date that `date +%F` prints.
+            Write the report to .lint-report.md. Do not commit or push.
+          claude_args: |
+            --max-turns 80
+            --allowedTools Read,Write,Edit,Glob,Grep,Bash(python3 scripts/lint.py:*),Bash(python scripts/lint.py:*),Bash(date:*)
+
+      # The PR must not carry structural errors that the agent left behind.
+      - name: Verify wiki
+        run: python scripts/lint.py
+
+      - name: Open pull request
+        if: hashFiles('.lint-report.md') != ''
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: kb-lint/weekly
+          delete-branch: true
+          add-paths: wiki/
+          commit-message: "lint: weekly wiki health check"
+          title: "Weekly wiki lint"
+          body-path: .lint-report.md
+          labels: kb-lint

@@ -1,0 +1,6 @@
+.DS_Store
+.lint-report.md
+.obsidian/workspace*.json
+.obsidian/cache
+.trash/
+__pycache__/
