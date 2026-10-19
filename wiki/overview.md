@@ -20,6 +20,5 @@ The knowledge base has one subject so far: the [[home-cluster]], a three-node Ku
 
 ## Open questions
 
-- Which NAS is current: Synology DS920+ or UNAS Pro 8? See [[home-nas]].
 - When will the CNPG Clusters move from `barmanObjectStore` to the Barman Cloud Plugin? See [[cloudnative-pg]].
 - Which external apps still need the gateway NetworkPolicy? See [[internal-vs-external-gateway]].

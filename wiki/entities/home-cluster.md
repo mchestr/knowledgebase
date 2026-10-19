@@ -18,7 +18,7 @@ Mike Chester's home Kubernetes cluster and the Git repository that defines it (g
 
 - Nodes: m0, m1, m2. All are control-plane nodes that also run workloads ([[home-cluster-node-management]]).
 - Network: [[cilium]] CNI with BGP LoadBalancer IPs to the [[udm-pro-max]] ([[bgp-load-balancing]]). Ingress through [[envoy-gateway]] with an internal and an external gateway ([[internal-vs-external-gateway]]) ([[home-cluster-networking]]).
-- Storage: [[rook-ceph]] on 3 × 2TB NVMe over the [[thunderbolt-ring-network]]. `openebs-hostpath` for node-local volumes. A NAS for media and database dumps ([[home-nas]]).
+- Storage: [[rook-ceph]] on 3 × 2TB NVMe over the [[thunderbolt-ring-network]]. `openebs-hostpath` for node-local volumes. A UNAS Pro 8 NAS for database dumps ([[home-nas]]).
 - Secrets: 1Password through [[external-secrets]] ([[home-cluster-secrets-management]]).
 - Auth: [[authelia]] with lldap as the user directory ([[home-cluster-readme]]).
 - Backups: [[volsync]] and [[cloudnative-pg]] to Cloudflare R2 ([[backup-strategy]]).

@@ -32,7 +32,7 @@ Keep entries in alphabetical order inside each section.
 - [[external-secrets]] — Copies 1Password items into Kubernetes Secrets through 1Password Connect.
 - [[flux]] — GitOps controller; entry point, central Helm rollback, reconcile commands.
 - [[home-cluster]] — Hub page for the home Kubernetes cluster and its repository.
-- [[home-nas]] — NAS for database dumps; README and networking docs disagree on the model.
+- [[home-nas]] — UNAS Pro 8 (4x28TB) at 10.0.40.13; receives 4-hourly database dumps.
 - [[kube-prometheus-stack]] — Prometheus, Alertmanager and Grafana; 14-day retention; Watchdog to Healthchecks.io.
 - [[ms-01]] — Node hardware (m0, m1, m2); IPs and Secure Boot setup.
 - [[renovate]] — Dependency bot; automerge after risk assessment and a 2-day minimum age.

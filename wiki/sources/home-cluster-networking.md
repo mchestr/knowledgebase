@@ -1,10 +1,12 @@
 ---
 title: home-cluster docs — Home Network Setup
 type: source
-source: raw/2026-10-18-home-cluster-networking.md
+source: raw/2026-10-18-home-cluster-networking-e36a8c8.md
+previous_sources:
+  - raw/2026-10-18-home-cluster-networking.md
 author: Mike Chester
-url: https://github.com/mchestr/home-cluster/blob/2ce9069c102d7eda4c430078c05a2c400befe730/docs/src/notes/networking.md
-commit: 2ce9069
+url: https://github.com/mchestr/home-cluster/blob/e36a8c83c6e8a21f1dfffbb167aee922365a2917/docs/src/notes/networking.md
+commit: e36a8c8
 created: 2026-10-18
 updated: 2026-10-18
 tags: [home-cluster, networking]
@@ -34,7 +36,7 @@ Service IPs in the LoadBalancer pool: Mosquitto MQTT `10.0.20.50`, Frigate strea
 
 IoT VLAN: Home Assistant `10.0.10.250`, Frigate NVR `10.0.10.239`, ESPHome `10.0.10.245`, Zigbee2MQTT, Z-Wave JS UI.
 
-Storage: "UNAS Pro 8, 4x 28TB (112TB raw)" on `10.0.40.x`, 10Gb to the aggregation switch ([[home-nas]]).
+Storage: "UNAS Pro 8, 4x 28TB (112TB raw)" at `10.0.40.13`, 10Gb to the aggregation switch ([[home-nas]]). Version `e36a8c8` added the IP. Version `2ce9069` showed `10.0.40.x`.
 
 Management: PiKVM V4 Mini, CyberPower UPS, UniFi PDU Pro.
 
@@ -46,5 +48,4 @@ Management: PiKVM V4 Mini, CyberPower UPS, UniFi PDU Pro.
 
 ## Open questions
 
-- The NAS here does not match the NAS in [[home-cluster-readme]]. See [[home-nas]].
 - The source says the external-gateway NetworkPolicy work is not complete. Only `home-assistant` and `waitlist` have it.

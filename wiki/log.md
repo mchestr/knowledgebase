@@ -27,3 +27,9 @@ Find recent entries with `grep '^## \[' wiki/log.md | tail -5`.
 - Still open: NAS model (home-nas).
 - Schema: added the `previous_sources` rule to CLAUDE.md, the lint and the kb-ingest skill.
 
+## [2026-10-18] ingest | home-cluster docs at e36a8c8
+
+- Source: home-cluster commit e36a8c8, "docs: replace the Synology DS920+ with the UNAS Pro 8 in the README". Only `README.md` and `networking.md` changed.
+- New raw files: `raw/2026-10-18-home-cluster-readme-e36a8c8.md`, `raw/2026-10-18-home-cluster-networking-e36a8c8.md`.
+- Updated sources: home-cluster-readme, home-cluster-networking (`source` now points to the new raw files; old files in `previous_sources`).
+- Updated: home-nas (contradiction settled; UNAS Pro 8 at 10.0.40.13), home-cluster (removed the unsourced "media" claim), overview, index.

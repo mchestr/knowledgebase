@@ -1,10 +1,12 @@
 ---
 title: home-cluster README
 type: source
-source: raw/2026-10-18-home-cluster-readme.md
+source: raw/2026-10-18-home-cluster-readme-e36a8c8.md
+previous_sources:
+  - raw/2026-10-18-home-cluster-readme.md
 author: Mike Chester
-url: https://github.com/mchestr/home-cluster/blob/2ce9069c102d7eda4c430078c05a2c400befe730/README.md
-commit: 2ce9069
+url: https://github.com/mchestr/home-cluster/blob/e36a8c83c6e8a21f1dfffbb167aee922365a2917/README.md
+commit: e36a8c8
 created: 2026-10-18
 updated: 2026-10-18
 tags: [home-cluster, kubernetes]
@@ -41,8 +43,10 @@ Hardware table:
 | TESmart HDMI KVM Switch 8 Ports | 1 | KVM switch |
 | CyberPower CP1500PFCRM2U | 1 | UPS |
 | USP-PDU-Pro | 1 | PDU |
-| Synology DS920+ (2x8TB & 2x16TB, 20GB RAM) | 1 | NAS ([[home-nas]]) |
+| UNAS Pro 8 (4x28TB, UniFi OS) | 1 | NAS ([[home-nas]]) |
 | MS-01 i9-13900H (1TB OS, 2TB data, 96GB RAM) | 3 | Control plane ([[ms-01]]) |
+
+Version `e36a8c8` changed only the NAS row. Version `2ce9069` listed a Synology DS920+ with 2x8TB & 2x16TB disks, 20GB RAM and DSM.
 
 ## Connections
 
@@ -50,4 +54,4 @@ Hardware table:
 
 ## Open questions
 
-- The NAS in this table does not match the NAS in [[home-cluster-networking]]. See [[home-nas]].
+- None. Version `e36a8c8` settled the NAS conflict with [[home-cluster-networking]].
