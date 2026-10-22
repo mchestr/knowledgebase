@@ -26,6 +26,8 @@ wiki/sources/         One summary page for each file in raw/.
 wiki/entities/        People, organizations, products, projects, places.
 wiki/concepts/        Ideas, methods, terms, theories.
 wiki/syntheses/       Comparisons, analyses and filed answers to queries.
+wiki/issues/          Common issues: symptom, cause, check and fix.
+wiki/sops/            Standard operating procedures: numbered steps for one task.
 templates/            Page templates for each page type.
 scripts/lint.py       Structural lint. CI runs it.
 scripts/sources.py    Finds new versions of tracked sources and saves them to raw/.
@@ -39,7 +41,7 @@ sources.json          Tracked sources and the last ingested version of each.
 1. Name each file in lowercase kebab-case, for example `wiki/concepts/scaling-laws.md`.
 2. Use a unique file name across all of `wiki/`. Links resolve by file name only.
 3. Start each page (except `index.md` and `log.md`) with the frontmatter from its template in `templates/`.
-4. Set `type` to `overview`, `source`, `entity`, `concept` or `synthesis`. Put the page in the matching directory.
+4. Set `type` to `overview`, `source`, `entity`, `concept`, `synthesis`, `issue` or `sop`. Put the page in the matching directory.
 5. Write dates as `YYYY-MM-DD`. Set `updated` to today each time you change the page.
 6. On a source page, set `source` to the path of the raw file, for example `raw/2026-10-18-article.md`.
 7. Keep one source page for each document. When a new version of the document arrives, save it as a new raw file.
@@ -69,10 +71,22 @@ sources.json          Tracked sources and the last ingested version of each.
 
 3. Mark a claim that a source does not support with `> [!question] Unverified`.
 
+## Issues and SOPs
+
+1. Write an issue page for each problem that can happen again. Name it for the symptom, for example `seerr-plex-user-cannot-sign-in`.
+2. Give each issue page these sections: Symptom, Cause, Check, Fix, Prevention, Related.
+3. Write an SOP page for each task that has fixed steps. Name it with a verb, for example `look-up-a-plex-user`.
+4. Give each SOP page these sections: Purpose, When to use, Before you start, Procedure, Verify, Related.
+5. Write the Check, Fix and Procedure sections as numbered steps. Put a command in a code block.
+6. Link an issue to the SOPs that its Check and Fix steps use.
+7. Record each incident as a raw file `raw/YYYY-MM-DD-incident-<slug>.md`, then ingest it. Cite the incident source page from the issue page.
+
+WARNING: Do not write personal information on any page or raw file. This includes names, emails, usernames, account IDs and IP addresses of users. Write "the user" instead. Tell the reader where to look up the real value.
+
 ## index.md
 
 1. List every page except `index.md` and `log.md`.
-2. Put each page under its section: Overview, Sources, Entities, Concepts or Syntheses.
+2. Put each page under its section: Overview, Sources, Entities, Concepts, Syntheses, Issues or SOPs.
 3. Write one entry for each page: `- [[page-name]] — one-line summary`.
 4. Keep entries in alphabetical order inside each section.
 

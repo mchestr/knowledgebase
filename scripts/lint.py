@@ -26,8 +26,10 @@ TYPE_DIRS = {
     "entity": WIKI / "entities",
     "concept": WIKI / "concepts",
     "synthesis": WIKI / "syntheses",
+    "issue": WIKI / "issues",
+    "sop": WIKI / "sops",
 }
-CITING_TYPES = {"entity", "concept", "synthesis"}
+CITING_TYPES = {"entity", "concept", "synthesis", "issue", "sop"}
 REQUIRED = ("title", "type", "created", "updated")
 LOG_OPS = {"ingest", "query", "lint", "update"}
 ASSET_EXTS = {

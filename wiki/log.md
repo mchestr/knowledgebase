@@ -52,3 +52,13 @@ Find recent entries with `grep '^## \[' wiki/log.md | tail -5`.
 - Updated sources: home-cluster-networking, home-cluster-application-deployment, home-cluster-authelia-readme (new versions), home-cluster-waitlist-readme (removed upstream), home-cluster-agents-md.
 - Updated: internal-vs-external-gateway and security-posture (contradiction settled: radicale is the reference), waitlist, overview, index.
 - Schema: added the `removed_upstream` rule to CLAUDE.md and the kb-ingest skill.
+
+## [2026-10-22] ingest | Incident: a Plex user cannot sign in to Seerr
+
+- Schema: added the `issue` and `sop` page types, `wiki/issues/`, `wiki/sops/`, their templates, the "Issues and SOPs" rules and the personal-information rule to CLAUDE.md, the lint and the kb-ingest and kb-query skills.
+- New raw file: `raw/2026-10-22-incident-seerr-plex-signin.md`.
+- Created source: incident-2026-10-22-seerr-plex-signin.
+- Created entities: seerr, plex-manager.
+- Created issue: seerr-plex-user-cannot-sign-in.
+- Created SOP: look-up-a-plex-user.
+- Updated: index.

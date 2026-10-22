@@ -17,6 +17,8 @@ Turn one source into wiki pages. One source can change 10 to 15 pages. Follow th
 
 WARNING: Do not edit, rename or delete files in `raw/`. Raw sources are the record of truth.
 
+WARNING: Do not write personal information of users (names, emails, usernames, account IDs, IP addresses) in a raw file or a wiki page. Write "the user" instead.
+
 ## Read
 
 1. Read `wiki/index.md` and `wiki/overview.md`.
@@ -37,11 +39,12 @@ Skip the "Discuss" steps when the user asks for a batch ingest or the run is una
 2. Set `source` to the raw file path.
 3. Update each existing entity and concept page that the source adds facts to. Cite the source page.
 4. Create a page for each important new entity or concept. Use `templates/entity.md` or `templates/concept.md`.
-5. Add a contradiction callout where the source conflicts with an existing claim.
-6. Update `wiki/overview.md` if the source changes the main themes or open questions.
-7. Add an entry to `wiki/index.md` for each new page. Update the summary of each changed page if it changed.
-8. Set `updated` to today on each page you changed.
-9. Add an entry at the bottom of `wiki/log.md`: `## [YYYY-MM-DD] ingest | <source title>`. List the changed pages.
+5. If the source is an incident or describes a repeatable problem, create or update an issue page from `templates/issue.md`. Create or update an SOP page from `templates/sop.md` for each fixed procedure it uses.
+6. Add a contradiction callout where the source conflicts with an existing claim.
+7. Update `wiki/overview.md` if the source changes the main themes or open questions.
+8. Add an entry to `wiki/index.md` for each new page. Update the summary of each changed page if it changed.
+9. Set `updated` to today on each page you changed.
+10. Add an entry at the bottom of `wiki/log.md`: `## [YYYY-MM-DD] ingest | <source title>`. List the changed pages.
 
 ## Check
 
@@ -66,7 +69,7 @@ Do these steps when a source page already exists for the document.
 4. On the source page, set `source` to the new file. Add the old path at the top of the `previous_sources` list.
 5. Update the source page for the changes. Note the new version in its "Data and quotes" section.
 6. Update the entity and concept pages that the changes affect. Remove contradiction and `Unverified` callouts that the new version settles.
-7. Do the "Write" steps 6 to 9 and the "Check" steps.
+7. Do the "Write" steps 7 to 10 and the "Check" steps.
 
 If the document was deleted upstream, keep its raw file and source page. Set `removed_upstream` in the frontmatter to the commit or date. Add a `[!note] Removed upstream` callout that says where the old content is.
 

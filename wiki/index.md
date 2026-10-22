@@ -36,6 +36,7 @@ Keep entries in alphabetical order inside each section.
 - [[home-cluster-volsync-restore-skill]] — home-cluster agent skill: safe VolSync restore and data check.
 - [[home-cluster-waitlist-readme]] — home-cluster: Waitlist parts, guard rails, runbooks (removed upstream in 470f9f8).
 - [[home-cluster-workstation-setup]] — home-cluster docs: Homebrew tools, kubectl plugins, kubeconfig and talosconfig.
+- [[incident-2026-10-22-seerr-plex-signin]] — Incident: a shared Plex user could not sign in to Seerr; wrong share email.
 
 ## Entities
 
@@ -56,8 +57,10 @@ Keep entries in alphabetical order inside each section.
 - [[lldap]] — User directory for Authelia; groups decide access.
 - [[memini]] — Agent memory service; /v1 and /mcp bypass Authelia.
 - [[ms-01]] — Node hardware (m0, m1, m2); IPs and Secure Boot setup.
+- [[plex-manager]] — Owner's Plex companion app (subs); source of truth for Plex user details.
 - [[renovate]] — Dependency bot; automerge after risk assessment and a 2-day minimum age.
 - [[rook-ceph]] — Distributed block storage on 3 NVMe OSDs; health and OSD procedures.
+- [[seerr]] — Media request app at requests.chestr.dev; Plex sign-in checks the share list.
 - [[talos-linux]] — Node OS (1.14, Kubernetes 1.37); config files, Talos commands, rollback.
 - [[tuppr]] — Automated Talos and Kubernetes upgrades gated on Ceph and VolSync.
 - [[udm-pro-max]] — Gateway router; BGP peer ASN 64513, internal DNS, IoT firewall.
@@ -84,3 +87,11 @@ Keep entries in alphabetical order inside each section.
 - [[node-failure-runbook]] — Steps when one node is down: assess, move pods, bring it back.
 - [[security-posture]] — External exposure, NetworkPolicy gaps, OIDC gaps, privileged automation.
 - [[triage-runbook]] — First response: alert path, quick checks, symptom table.
+
+## Issues
+
+- [[seerr-plex-user-cannot-sign-in]] — Seerr refuses a Plex user who is not on the Plex share list with the same email.
+
+## SOPs
+
+- [[look-up-a-plex-user]] — Find a Plex user's email, Plex username and server access in plex-manager.
