@@ -4,7 +4,7 @@ type: entity
 kind: software
 aliases: [FluxCD, flux2]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-28
 tags: [home-cluster, gitops]
 ---
 
@@ -23,6 +23,7 @@ The GitOps controller of the [[home-cluster]]. It watches the `kubernetes/` fold
 - CI: `flux-local` validates and `flux-diff` posts the diff on each PR that touches `kubernetes/**` ([[home-cluster-agents-md]]).
 - `cluster-secrets` supplies `${VAR}` substitutions such as `CLOUDFLARE_ACCOUNT_ID` ([[home-cluster-secrets-management]]).
 - Most apps use the shared `app-template` chart through `chartRef` ([[app-deployment-pattern]]).
+- An `OCIRepository` whose registry denies the pull stays `Ready=False`, and CI fails to render its chart on every branch. See [[oci-chart-pull-denied]] ([[incident-2026-10-28-fluent-bit-chart-mirror-403]]).
 
 ## Commands
 
