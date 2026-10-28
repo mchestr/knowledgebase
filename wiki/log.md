@@ -62,3 +62,10 @@ Find recent entries with `grep '^## \[' wiki/log.md | tail -5`.
 - Created issue: seerr-plex-user-cannot-sign-in.
 - Created SOP: look-up-a-plex-user.
 - Updated: index.
+
+## [2026-10-28] ingest | Incident: the Fluent Bit chart mirror denies pulls
+
+- New raw file: `raw/2026-10-28-incident-fluent-bit-chart-mirror-403.md`.
+- Created source: incident-2026-10-28-fluent-bit-chart-mirror-403.
+- Created issue: oci-chart-pull-denied.
+- Updated: victorialogs, flux, index.

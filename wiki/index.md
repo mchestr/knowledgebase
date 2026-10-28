@@ -37,6 +37,7 @@ Keep entries in alphabetical order inside each section.
 - [[home-cluster-waitlist-readme]] — home-cluster: Waitlist parts, guard rails, runbooks (removed upstream in 470f9f8).
 - [[home-cluster-workstation-setup]] — home-cluster docs: Homebrew tools, kubectl plugins, kubeconfig and talosconfig.
 - [[incident-2026-10-22-seerr-plex-signin]] — Incident: a shared Plex user could not sign in to Seerr; wrong share email.
+- [[incident-2026-10-28-fluent-bit-chart-mirror-403]] — Incident: the charts-mirror Fluent Bit chart denied pulls; moved to the upstream OCI chart.
 
 ## Entities
 
@@ -64,7 +65,7 @@ Keep entries in alphabetical order inside each section.
 - [[talos-linux]] — Node OS (1.14, Kubernetes 1.37); config files, Talos commands, rollback.
 - [[tuppr]] — Automated Talos and Kubernetes upgrades gated on Ceph and VolSync.
 - [[udm-pro-max]] — Gateway router; BGP peer ASN 64513, internal DNS, IoT firewall.
-- [[victorialogs]] — Log store that replaced Loki; Fluent Bit collection; VMRule log alerts.
+- [[victorialogs]] — Log store that replaced Loki; Fluent Bit collection (upstream OCI chart); VMRule log alerts.
 - [[volsync]] — Daily restic PVC backups to R2; restore task and monthly checks.
 - [[waitlist]] — Owner's reservation-watcher app; most locked-down app in the cluster.
 
@@ -90,6 +91,7 @@ Keep entries in alphabetical order inside each section.
 
 ## Issues
 
+- [[oci-chart-pull-denied]] — An OCIRepository registry denies the chart pull (403); Flux source and CI renders fail.
 - [[seerr-plex-user-cannot-sign-in]] — Seerr refuses a Plex user who is not on the Plex share list with the same email.
 
 ## SOPs
