@@ -69,3 +69,11 @@ Find recent entries with `grep '^## \[' wiki/log.md | tail -5`.
 - Created source: incident-2026-10-28-fluent-bit-chart-mirror-403.
 - Created issue: oci-chart-pull-denied.
 - Updated: victorialogs, flux, index.
+
+## [2026-10-28] ingest | home-cluster at 2d78212
+
+- Source: home-cluster `fa79b82..2d78212`, including PR #6313 (CI moves from flux-local to flate) and the windmill removal.
+- New raw files: `raw/2026-10-28-home-cluster-{add-app-skill,renovate-review-skill,renovate-risk-prompt,agents-md,readme,application-deployment,upgrade-procedures,claude-code-readme,claude-code-agent-instructions,app-inventory}-2d78212.md`.
+- Updated sources (new versions): home-cluster-add-app-skill, -renovate-review-skill, -renovate-risk-prompt, -agents-md, -readme, -application-deployment, -upgrade-procedures, -claude-code-readme, -claude-code-agent-instructions, -app-inventory.
+- Updated: flux, renovate, renovate-risk-review, app-deployment-pattern, gitops, claude-code-remote-control, cloudflare-terraform, home-cluster, authelia, lldap, security-posture, app-inventory, overview, index.
+- Fixed: the app inventory source page said 18 Kustomizations in `media` at `e36a8c8`; the raw table has 19.

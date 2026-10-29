@@ -1,12 +1,14 @@
 ---
 title: home-cluster claude-code README
 type: source
-source: raw/2026-10-18-home-cluster-claude-code-readme.md
+source: raw/2026-10-28-home-cluster-claude-code-readme-2d78212.md
+previous_sources:
+  - raw/2026-10-18-home-cluster-claude-code-readme.md
 author: Mike Chester
-url: https://github.com/mchestr/home-cluster/blob/e36a8c83c6e8a21f1dfffbb167aee922365a2917/kubernetes/apps/ai/claude-code/README.md
-commit: e36a8c8
+url: https://github.com/mchestr/home-cluster/blob/2d78212a4670e1ee96dd9d496cc41aa59f9c9d9b/kubernetes/apps/ai/claude-code/README.md
+commit: 2d78212
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-28
 tags: [home-cluster, ai, claude-code]
 ---
 
@@ -25,11 +27,14 @@ How Claude Code runs in the cluster as a Remote Control server, so the owner can
 - Each new session gets its own git worktree. The session name is `home-cluster`.
 - `~/.claude` is on the `claude-code` PVC, which VolSync does not back up on purpose. If it is lost, repeat the bootstrap.
 - Remote Control does not start if `ANTHROPIC_API_KEY`, `ANTHROPIC_AUTH_TOKEN`, `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` or `DISABLE_GROWTHBOOK` is set.
-- There is no `op` CLI, so 1Password tasks (terraform, `talos:apply-node`) still need the Mac.
+- The pod has `terraform`. The ExternalSecret also copies `CLOUDFLARE_TERRAFORM_TOKEN` (item `cloudflare`), `OP_CONNECT_TOKEN` (item `1password`) and `TERRAFORM_TOKEN` (item `terraform`, as `TF_TOKEN_app_terraform_io`), so `task terraform:cf:*` needs no `op`.
+- There is no `op` CLI, so `talos:apply-node` (`op inject`) still needs the Mac.
 
 ## Data and quotes
 
 The app has an outbound-only NetworkPolicy (`app/networkpolicy.yaml`, "Remote Control is outbound-only") ([[home-cluster-app-inventory]]).
+
+Version `2d78212` added Terraform to the pod. Before it, Terraform also needed the Mac.
 
 ## Connections
 

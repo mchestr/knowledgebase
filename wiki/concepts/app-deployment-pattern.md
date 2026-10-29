@@ -3,7 +3,7 @@ title: App deployment pattern
 type: concept
 aliases: [new app checklist, app-template]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-28
 tags: [home-cluster, flux, runbook]
 ---
 
@@ -43,7 +43,7 @@ Components: `volsync` ([[volsync]]), `cnpg` ([[cloudnative-pg]]), `dragonfly` (R
 10. List the files in `app/kustomization.yaml`.
 11. Add `./<app>/ks.yaml` to `kubernetes/apps/<namespace>/kustomization.yaml`.
 12. Build it as Flux does: `flux build kustomization <app> --namespace <ns> --path ./kubernetes/apps/<ns>/<app>/app --kustomization-file ./kubernetes/apps/<ns>/<app>/ks.yaml --dry-run` ([[home-cluster-add-app-skill]]).
-13. Commit as `feat(<app>): add <app>` and open a PR. CI builds it with flux-local, posts a flux-diff, and runs the [[renovate-risk-review]] when the PR is not a draft.
+13. Commit as `feat(<app>): add <app>` and open a PR. CI builds it with flate (Flate Test), posts the Flux Diff comment, and runs the [[renovate-risk-review]] when the PR is not a draft ([[home-cluster-add-app-skill]]).
 14. After the merge, run `task kubernetes:reconcile` to apply it sooner.
 
 The `add-app` skill does these steps for an agent. Its reference app is `kubernetes/apps/media/tautulli` ([[home-cluster-add-app-skill]]).

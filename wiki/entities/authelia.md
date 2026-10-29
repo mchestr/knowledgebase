@@ -4,7 +4,7 @@ type: entity
 kind: software
 aliases: []
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-28
 tags: [home-cluster, auth]
 ---
 
@@ -29,7 +29,7 @@ SSO and two-factor authentication for the [[home-cluster]]. It guards every app 
 - Authelia enables an OIDC client only when its fields reach `authelia-secret`. A missing field disables sign-in to that app, not Authelia ([[home-cluster-waitlist-readme]]).
 - OIDC client secrets are generated with the script in `kubernetes/apps/default/authelia/app/README.md` ([[home-cluster-secrets-management]]). See [[home-cluster-authelia-readme]] for the steps.
 
-WARNING: Any [[lldap]] account can use every OIDC client that has no group-limited `authorization_policies`. Limit Autobrr, Grafana, Immich, Paperless and Windmill before you add a second user ([[home-cluster-waitlist-readme]]).
+WARNING: Any [[lldap]] account can use every OIDC client that has no group-limited `authorization_policies`. Limit Autobrr, Grafana, Immich and Paperless before you add a second user ([[home-cluster-waitlist-readme]]). The source also named Windmill. The inventory at `2d78212` has no Windmill ([[home-cluster-app-inventory]]).
 
 ## Related
 
