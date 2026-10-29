@@ -4,7 +4,7 @@ type: entity
 kind: software
 aliases: [claude-code, in-cluster Claude Code]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-28
 tags: [home-cluster, ai, claude-code, security]
 ---
 
@@ -21,8 +21,8 @@ A Claude Code server in the `ai` namespace of the [[home-cluster]]. The owner co
 - Optional Home Assistant MCP server through a non-admin user's `HASS_TOKEN` (`/api/mcp/assist`, Assist-exposed entities only) ([[home-cluster-claude-code-readme]]).
 - Network: an outbound-only NetworkPolicy. No HTTPRoute ([[home-cluster-claude-code-readme]], [[home-cluster-app-inventory]]).
 - Login: a full claude.ai login, stored in `~/.claude` on the `claude-code` PVC. VolSync does not back up this PVC on purpose. `claude setup-token` tokens are rejected ([[home-cluster-claude-code-readme]]).
-- No `op` CLI. Terraform and `talos:apply-node` still need the Mac ([[home-cluster-claude-code-readme]]).
-- Its `CLAUDE.md` sets the ASD-STE100 writing style ([[home-cluster-claude-code-agent-instructions]]).
+- Terraform runs in the pod: the ExternalSecret supplies the Cloudflare, 1Password Connect and Terraform Cloud tokens. There is no `op` CLI, so `talos:apply-node` still needs the Mac ([[home-cluster-claude-code-readme]]).
+- Its `CLAUDE.md` sets the ASD-STE100 writing style and tells it to read this knowledge base at `~/knowledgebase` before it troubleshoots ([[home-cluster-claude-code-agent-instructions]]).
 - The repository also defines the `ops` subagent ([[home-cluster-ops-agent]]) and the `add-app`, `renovate-review` and `volsync-restore` skills.
 
 ## Bootstrap

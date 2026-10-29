@@ -11,12 +11,12 @@ Keep entries in alphabetical order inside each section.
 
 - [[home-cluster-add-app-skill]] — home-cluster agent skill: add an app, build like Flux, open a PR.
 - [[home-cluster-agents-md]] — home-cluster AGENTS.md: repo conventions, components, AI stack, Renovate in-cluster.
-- [[home-cluster-app-inventory]] — Generated table of 98 Flux Kustomizations with gateway and policy coverage.
+- [[home-cluster-app-inventory]] — Generated table of 97 Flux Kustomizations with gateway and policy coverage.
 - [[home-cluster-application-deployment]] — home-cluster docs: Flux app layout, components, HelmRelease rules, gateway choice.
 - [[home-cluster-authelia-readme]] — home-cluster: make an Authelia OIDC client and store it in 1Password.
 - [[home-cluster-bootstrap]] — home-cluster docs: Talos ISO, MS-01 Secure Boot, bootstrap order before Flux.
 - [[home-cluster-cilium-config-readme]] — home-cluster: UniFi BGP config that peers with Cilium.
-- [[home-cluster-claude-code-agent-instructions]] — home-cluster: STE writing rules for the in-cluster Claude Code.
+- [[home-cluster-claude-code-agent-instructions]] — home-cluster: STE writing and knowledge base rules for the in-cluster Claude Code.
 - [[home-cluster-claude-code-readme]] — home-cluster: in-cluster Claude Code Remote Control setup and limits.
 - [[home-cluster-cnpg-component-readme]] — home-cluster: make CNPG database credentials in 1Password.
 - [[home-cluster-disaster-recovery]] — home-cluster docs: backup design, VolSync, node failure, full loss, CNPG recovery and tests.
@@ -83,7 +83,7 @@ Keep entries in alphabetical order inside each section.
 
 ## Syntheses
 
-- [[app-inventory]] — All 98 Kustomizations: namespace, image, gateway, components, policy.
+- [[app-inventory]] — All 97 Kustomizations: namespace, image, gateway, components, policy.
 - [[complete-cluster-loss-runbook]] — Rebuild the cluster from Git, 1Password and R2, including Postgres.
 - [[node-failure-runbook]] — Steps when one node is down: assess, move pods, bring it back.
 - [[security-posture]] — External exposure, NetworkPolicy gaps, OIDC gaps, privileged automation.

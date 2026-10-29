@@ -2,13 +2,13 @@
 title: Overview
 type: overview
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-28
 tags: []
 ---
 
 # Overview
 
-The knowledge base has one subject so far: the [[home-cluster]], a three-node Kubernetes cluster at home. The sources are its README, its operations docs, `AGENTS.md`, its component READMEs, its Claude agent files, and a generated app inventory ([[app-inventory]]), up to commit `e36a8c8`.
+The knowledge base has one subject so far: the [[home-cluster]], a three-node Kubernetes cluster at home. The sources are its README, its operations docs, `AGENTS.md`, its component READMEs, its Claude agent files, and a generated app inventory ([[app-inventory]]), up to commit `2d78212`.
 
 ## Main themes
 
@@ -23,5 +23,5 @@ The knowledge base has one subject so far: the [[home-cluster]], a three-node Ku
 ## Open questions
 
 - When will the CNPG Clusters move from `barmanObjectStore` to the Barman Cloud Plugin? See [[cloudnative-pg]].
-- Six external apps have no NetworkPolicy, and `home-assistant` lacks the `kube-apiserver` rule. Are these planned? See [[security-posture]].
-- Do Autobrr, Grafana, Immich, Paperless and Windmill have group-limited `authorization_policies` yet? See [[lldap]].
+- Five external apps have no NetworkPolicy, and `home-assistant` lacks the `kube-apiserver` rule. Are these planned? See [[security-posture]].
+- Do Autobrr, Grafana, Immich and Paperless have group-limited `authorization_policies` yet? The inventory at `2d78212` has no Windmill. See [[lldap]].
