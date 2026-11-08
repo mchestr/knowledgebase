@@ -3,7 +3,7 @@
     "repo": "mchestr/home-cluster",
     "branch": "main",
     "slug_prefix": "home-cluster",
-    "ingested": "fa79b82c8b6a07463cea837fcda6493c1aed4179",
+    "ingested": "924c31d581b9010658ac58e4022448e7d6bf5ba9",
     "paths": [
       "README.md",
       "AGENTS.md",
@@ -20,8 +20,11 @@
       {
         "name": "app-inventory",
         "page": "home-cluster-app-inventory",
-        "trigger": ["kubernetes/apps/*", "kubernetes/components/*"],
-        "generated": "e36a8c83c6e8a21f1dfffbb167aee922365a2917"
+        "trigger": [
+          "kubernetes/apps/*",
+          "kubernetes/components/*"
+        ],
+        "generated": "924c31d581b9010658ac58e4022448e7d6bf5ba9"
       }
     ]
   }

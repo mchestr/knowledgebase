@@ -4,7 +4,7 @@ type: entity
 kind: software
 aliases: [FluxCD, flux2]
 created: 2026-10-18
-updated: 2026-10-28
+updated: 2026-11-08
 tags: [home-cluster, gitops]
 ---
 
@@ -20,7 +20,7 @@ The GitOps controller of the [[home-cluster]]. It watches the `kubernetes/` fold
 - Entry point: `kubernetes/flux/cluster/ks.yaml`. It loads `kubernetes/flux/meta/`, then each namespace under `kubernetes/apps/` ([[home-cluster-application-deployment]]).
 - That entry point also patches every HelmRelease to roll back a failed upgrade and to replace chart CRDs on every upgrade. The Helm timeout is 5 minutes ([[home-cluster-application-deployment]], [[home-cluster-agents-md]]).
 - `kubernetes/components/common/namespace.yaml` has `kustomize.toolkit.fluxcd.io/prune: disabled`, so Flux never deletes a namespace ([[home-cluster-waitlist-readme]]).
-- CI: `flux-local` validates and `flux-diff` posts the diff on each PR that touches `kubernetes/**` ([[home-cluster-agents-md]]).
+- CI: `.github/workflows/ci.yaml` runs Flate Test (flate builds every Kustomization and renders every HelmRelease) and Flux Diff (a PR comment with the changed `HelmRelease` and `Kustomization` resources). Each job runs only when its files change ([[home-cluster-agents-md]]). Before `924c31d`, `flux-local` did the validation.
 - `cluster-secrets` supplies `${VAR}` substitutions such as `CLOUDFLARE_ACCOUNT_ID` ([[home-cluster-secrets-management]]).
 - Most apps use the shared `app-template` chart through `chartRef` ([[app-deployment-pattern]]).
 - An `OCIRepository` whose registry denies the pull stays `Ready=False`, and CI fails to render its chart on every branch. See [[oci-chart-pull-denied]] ([[incident-2026-10-28-fluent-bit-chart-mirror-403]]).
