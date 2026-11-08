@@ -1,12 +1,14 @@
 ---
 title: home-cluster AGENTS.md
 type: source
-source: raw/2026-10-18-home-cluster-agents-md.md
+source: raw/2026-11-08-home-cluster-agents-md-924c31d.md
+previous_sources:
+  - raw/2026-10-18-home-cluster-agents-md.md
 author: Mike Chester
-url: https://github.com/mchestr/home-cluster/blob/e36a8c83c6e8a21f1dfffbb167aee922365a2917/AGENTS.md
-commit: e36a8c8
+url: https://github.com/mchestr/home-cluster/blob/924c31d581b9010658ac58e4022448e7d6bf5ba9/AGENTS.md
+commit: 924c31d
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-11-08
 tags: [home-cluster, agents, conventions]
 ---
 
@@ -31,13 +33,16 @@ Guidance for AI coding agents in the [[home-cluster]] repository. `CLAUDE.md` im
 - Talos configs are Jinja2 templates, rendered with `minijinja-cli` and filled with `op inject`. `talosctl apply-config --dry-run` shows a change first.
 - [[in-cluster-ai-stack]]: [[litellm]] (OpenRouter, no local GPU), text-embeddings (TEI, `bge-small-en-v1.5`), [[memini]] at `memini.chestr.dev`.
 - [[gatus]] status page at `status.chestr.dev`, fed by `gatus-sidecar` from every HTTPRoute. Opt out with `gatus.home-operations.com/enabled: "false"`.
-- Commit scopes: `feat|fix|chore(container)`, `feat|fix(helm)`, `feat|fix(github-release)`, `feat|fix(<app>)`, `chore:`. Majors use `!`.
-- [[renovate]] runs in the cluster through `renovate-operator`, each hour, as the `mchesterbot` GitHub App. Renovate's own majors also automerge.
-- CI: `flux-local` validates and `flux-diff` posts diffs on PRs that touch `kubernetes/**`.
+- Commit scopes: `feat|fix(container)` (`feat` for minor, `fix` for patch and digest), `feat|fix(helm)`, `chore(github-release)`, `ci(github-action)`, `feat|fix(<app>)`, `chore:`. Majors and `0.x` minor bumps use `!`. The types and scopes come from the `home-operations/renovate-presets` preset.
+- [[renovate]] runs in the cluster through `renovate-operator`, each hour, as the `mchesterbot` GitHub App. Renovate's own majors also automerge. The rules are in `.renovaterc.json5`.
+- CI: `.github/workflows/ci.yaml` runs every PR check and reports one `CI Success` status. It runs Flate Test (flate builds every Kustomization and renders every HelmRelease), the risk assessment, Flux Diff (a PR comment with changed `HelmRelease` and `Kustomization` resources), image pre-pulls, actionlint and zizmor. The `Changed Files` job also validates `.renovaterc.json5`. Each job runs only when its files change.
+- Knowledge base: common issues, SOPs and incident history live in the `mchestr/knowledgebase` wiki. Agents read `wiki/index.md` and the matching `wiki/issues/` and `wiki/sops/` pages before they troubleshoot, follow an SOP when one exists, and offer to record a new problem with the `kb-ingest` skill. Do not write personal information there, because the repository is public.
 
 ## Data and quotes
 
 > "Images and OCI charts outside Docker Hub get no minimum age and merge once the risk assessment passes."
+
+Version `924c31d` added the "Knowledge Base" section, replaced `flux-local` and `flux-diff` with `ci.yaml`, changed the commit-type table, and moved the Renovate rules from `.github/renovate/autoMerge.json5` to `.renovaterc.json5`. Version `e36a8c8` listed `chore(container)` and `feat|fix(github-release)`.
 
 ## Connections
 
@@ -45,4 +50,4 @@ Guidance for AI coding agents in the [[home-cluster]] repository. `CLAUDE.md` im
 
 ## Open questions
 
-- None. Docs version `fa79b82` now also names `radicale`.
+- None. The Renovate rules file moved to `.renovaterc.json5`; [[home-cluster-upgrade-procedures]] now agrees. Docs version `fa79b82` now also names `radicale`.

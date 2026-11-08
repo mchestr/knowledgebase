@@ -69,3 +69,10 @@ Find recent entries with `grep '^## \[' wiki/log.md | tail -5`.
 - Created source: incident-2026-10-28-fluent-bit-chart-mirror-403.
 - Created issue: oci-chart-pull-denied.
 - Updated: victorialogs, flux, index.
+
+## [2026-11-08] ingest | home-cluster at 924c31d
+
+- Source: home-cluster commit 924c31d. Unattended re-ingest of 11 changed sources. New raw files: `raw/2026-11-08-home-cluster-{add-app-skill,renovate-review-skill,renovate-risk-prompt,agents-md,readme,application-deployment,networking,upgrade-procedures,claude-code-readme,claude-code-agent-instructions,app-inventory}-924c31d.md`.
+- Updated sources: home-cluster-add-app-skill, home-cluster-renovate-review-skill, home-cluster-renovate-risk-prompt, home-cluster-agents-md, home-cluster-readme, home-cluster-application-deployment, home-cluster-networking, home-cluster-upgrade-procedures, home-cluster-claude-code-readme, home-cluster-claude-code-agent-instructions, home-cluster-app-inventory.
+- Updated: home-cluster, flux, renovate, claude-code-remote-control, renovate-risk-review, gitops, app-deployment-pattern, bgp-load-balancing, app-inventory, security-posture, overview, index.
+- Changes: flux-local replaced by flate and a single `ci.yaml`; Renovate rules moved to `.renovaterc.json5`; new commit-type table; the in-cluster Claude Code gets terraform and the knowledge base; Jellyfin removed from the networking doc; the inventory dropped jellyfin, jellyplex-watched and windmill and added silo (96 Kustomizations).

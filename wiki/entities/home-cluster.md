@@ -4,7 +4,7 @@ type: entity
 kind: system
 aliases: [home Kubernetes cluster, mchestr/home-cluster]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-11-08
 tags: [home-cluster, kubernetes]
 ---
 
@@ -27,7 +27,7 @@ Mike Chester's home Kubernetes cluster and the Git repository that defines it (g
 - Public domain: `chestr.dev`. Status page: status.chestr.dev.
 - Cloud cost is about $150 each year ([[home-cluster-readme]]).
 - Started from `onedr0p/cluster-template` ([[home-cluster-readme]]).
-- 98 Flux Kustomizations in 17 namespaces at `e36a8c8`. See [[app-inventory]].
+- 96 Flux Kustomizations in 17 namespaces at `924c31d`. See [[app-inventory]].
 - AI services and agents: [[in-cluster-ai-stack]], [[claude-code-remote-control]], [[renovate-risk-review]].
 - Exposure and gaps: [[security-posture]].
 - Agent conventions: [[home-cluster-agents-md]].

@@ -1,15 +1,16 @@
 ---
 title: home-cluster docs — Home Network Setup
 type: source
-source: raw/2026-10-18-home-cluster-networking-fa79b82.md
+source: raw/2026-11-08-home-cluster-networking-924c31d.md
 previous_sources:
+  - raw/2026-10-18-home-cluster-networking-fa79b82.md
   - raw/2026-10-18-home-cluster-networking-e36a8c8.md
   - raw/2026-10-18-home-cluster-networking.md
 author: Mike Chester
-url: https://github.com/mchestr/home-cluster/blob/fa79b82c8b6a07463cea837fcda6493c1aed4179/docs/src/notes/networking.md
-commit: fa79b82
+url: https://github.com/mchestr/home-cluster/blob/924c31d581b9010658ac58e4022448e7d6bf5ba9/docs/src/notes/networking.md
+commit: 924c31d
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-11-08
 tags: [home-cluster, networking]
 ---
 
@@ -33,7 +34,7 @@ The home network, the subnets, the ingress design and the Thunderbolt ring. It h
 
 ## Data and quotes
 
-Service IPs in the LoadBalancer pool: Mosquitto MQTT `10.0.20.50`, Frigate streams `10.0.20.60`, Jellyfin `10.0.20.70`, qBittorrent `10.0.20.80`, Plex `10.0.20.110`, PostgreSQL `10.0.20.17`.
+Service IPs in the LoadBalancer pool: Mosquitto MQTT `10.0.20.50`, Frigate streams `10.0.20.60`, qBittorrent `10.0.20.80`, Plex `10.0.20.110`, PostgreSQL `10.0.20.17`.
 
 IoT VLAN: Home Assistant `10.0.10.250`, Frigate NVR `10.0.10.239`, ESPHome `10.0.10.245`, Zigbee2MQTT, Z-Wave JS UI.
 
@@ -42,6 +43,8 @@ Storage: "UNAS Pro 8, 4x 28TB (112TB raw)" at `10.0.40.13`, 10Gb to the aggregat
 Management: PiKVM V4 Mini, CyberPower UPS, UniFi PDU Pro.
 
 ![[thunderbolt.png]]
+
+Version `924c31d` removed the Jellyfin service (`10.0.20.70`) from the ingress diagram. Version `fa79b82` and earlier listed it. The same commit removed `jellyfin` from the app inventory ([[home-cluster-app-inventory]]).
 
 Version `fa79b82` names `default/radicale` and `waitlist` as the reference NetworkPolicy implementations. Versions `2ce9069` to `e36a8c8` named `home-assistant` and `waitlist`.
 
