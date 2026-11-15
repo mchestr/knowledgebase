@@ -4,7 +4,7 @@ type: entity
 kind: software
 aliases: [gatus-sidecar, status page]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-11-15
 tags: [home-cluster, observability]
 ---
 
@@ -18,7 +18,7 @@ The public status page of the [[home-cluster]] at `status.chestr.dev` ([[home-cl
 
 - `gatus-sidecar` builds the checks from every HTTPRoute. Set `gatus.home-operations.com/enabled: "false"` on a route to leave it out ([[home-cluster-agents-md]]).
 - A Healthchecks.io check watches that the status page is up ([[home-cluster-observability]]).
-- Gatus is on `envoy-external` with no NetworkPolicy ([[home-cluster-app-inventory]]).
+- Gatus is on `envoy-external`. The inventory at `bc9a054` shows gateway-only ingress and a `kube-apiserver` entity policy; at `924c31d` it showed none ([[home-cluster-app-inventory]]).
 
 ## Related
 

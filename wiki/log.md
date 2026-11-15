@@ -76,3 +76,10 @@ Find recent entries with `grep '^## \[' wiki/log.md | tail -5`.
 - Updated sources: home-cluster-add-app-skill, home-cluster-renovate-review-skill, home-cluster-renovate-risk-prompt, home-cluster-agents-md, home-cluster-readme, home-cluster-application-deployment, home-cluster-networking, home-cluster-upgrade-procedures, home-cluster-claude-code-readme, home-cluster-claude-code-agent-instructions, home-cluster-app-inventory.
 - Updated: home-cluster, flux, renovate, claude-code-remote-control, renovate-risk-review, gitops, app-deployment-pattern, bgp-load-balancing, app-inventory, security-posture, overview, index.
 - Changes: flux-local replaced by flate and a single `ci.yaml`; Renovate rules moved to `.renovaterc.json5`; new commit-type table; the in-cluster Claude Code gets terraform and the knowledge base; Jellyfin removed from the networking doc; the inventory dropped jellyfin, jellyplex-watched and windmill and added silo (96 Kustomizations).
+
+## [2026-11-15] ingest | home-cluster at bc9a054
+
+- Source: home-cluster commit bc9a054. Unattended re-ingest of 2 changed sources. New raw files: `raw/2026-11-15-home-cluster-{renovate-review-skill,app-inventory}-bc9a054.md`.
+- Updated sources: home-cluster-renovate-review-skill, home-cluster-app-inventory.
+- Updated: renovate-risk-review, app-inventory, security-posture, authelia, gatus, overview.
+- Changes: review skill adds `ruled_out`, operator-image and home-operations rebuild checks, UI-settings rule and a rating-by-effect rule; inventory shows policies for authelia, gatus and kromgo, and many image bumps (still 96 Kustomizations).

@@ -3,7 +3,7 @@ title: Security posture
 type: synthesis
 question: How exposed is the home-cluster, and where are the gaps?
 created: 2026-10-18
-updated: 2026-11-08
+updated: 2026-11-15
 tags: [home-cluster, security]
 ---
 
@@ -11,7 +11,7 @@ tags: [home-cluster, security]
 
 ## Answer
 
-The [[home-cluster]] has two layers in front of apps: the gateway choice and the NetworkPolicy of each app. Internal apps are behind [[authelia]], which fails closed. External apps rely on their own login ([[internal-vs-external-gateway]]). At commit `924c31d`, the main gaps are external apps without a NetworkPolicy, OIDC clients without group limits, and a powerful in-cluster agent.
+The [[home-cluster]] has two layers in front of apps: the gateway choice and the NetworkPolicy of each app. Internal apps are behind [[authelia]], which fails closed. External apps rely on their own login ([[internal-vs-external-gateway]]). At commit `bc9a054`, the main gaps are external apps without a NetworkPolicy, OIDC clients without group limits, and a powerful in-cluster agent.
 
 ### External exposure
 
@@ -19,11 +19,11 @@ The [[home-cluster]] has two layers in front of apps: the gateway choice and the
 
 | Coverage | Apps |
 | --- | --- |
-| Both policies | `immich`, `jellyseerr`, `radicale`, `subs`, [[waitlist]] |
+| Both policies | [[authelia]], [[gatus]], `immich`, `jellyseerr`, `kromgo`, `radicale`, `subs`, [[waitlist]] |
 | Gateway policy only | `home-assistant` |
-| No policy in the app path | [[authelia]], `plex`, [[gatus]], `kromgo`, `flux-instance` |
+| No policy in the app path | `plex`, `flux-instance` |
 
-Source: [[home-cluster-app-inventory]]. `AGENTS.md` says "not every app has one yet" ([[home-cluster-agents-md]]).
+Source: [[home-cluster-app-inventory]]. At `924c31d`, `authelia`, `gatus` and `kromgo` had no policy; the inventory at `bc9a054` shows both policies for them. `AGENTS.md` says "not every app has one yet" ([[home-cluster-agents-md]]).
 
 The reference implementations are `default/radicale` and `waitlist` ([[home-cluster-agents-md]], [[home-cluster-networking]]). `home-assistant` has no `kube-apiserver` rule, so it is not a complete example ([[home-cluster-app-inventory]]).
 
@@ -41,7 +41,7 @@ Other paths into pods:
 WARNING: Before you add a second user to lldap, give Autobrr, Grafana, Immich, Paperless and Windmill their own `authorization_policies`. Any lldap account can use every OIDC client without one, and can enrol its own second factor ([[home-cluster-waitlist-readme]]).
 
 > [!question] Unverified
-> The warning names Windmill. The inventory at `924c31d` has no `windmill` Kustomization ([[home-cluster-app-inventory]]). The sources do not say if its OIDC client still exists.
+> The warning names Windmill. The inventory at `bc9a054` has no `windmill` Kustomization ([[home-cluster-app-inventory]]). The sources do not say if its OIDC client still exists.
 
 - OIDC client secrets go from the Authelia CLI straight into 1Password and never reach the screen ([[home-cluster-authelia-readme]]).
 
@@ -57,7 +57,7 @@ WARNING: Before you add a second user to lldap, give Autobrr, Grafana, Immich, P
 
 ## Analysis
 
-The highest-value fixes in the sources are: add policies to the five external apps that have none; add the `kube-apiserver` rule to `home-assistant`; add group limits to the five OIDC clients before any second user exists.
+The highest-value fixes in the sources are: add policies to the two external apps that have none (`plex`, `flux-instance`); add the `kube-apiserver` rule to `home-assistant`; add group limits to the five OIDC clients before any second user exists.
 
 ## Sources
 
