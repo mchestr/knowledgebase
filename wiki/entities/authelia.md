@@ -4,7 +4,7 @@ type: entity
 kind: software
 aliases: []
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-11-15
 tags: [home-cluster, auth]
 ---
 
@@ -23,7 +23,7 @@ SSO and two-factor authentication for the [[home-cluster]]. It guards every app 
   - one-factor for the `media` group on the *arr apps;
   - `bypass` for apps with their own login;
   - deny for all other requests.
-- Authelia itself is on the external gateway, with no NetworkPolicy in its app path ([[home-cluster-networking]], [[home-cluster-app-inventory]]).
+- Authelia itself is on the external gateway. The inventory at `bc9a054` shows gateway-only ingress and a `kube-apiserver` entity policy; at `924c31d` it showed none ([[home-cluster-networking]], [[home-cluster-app-inventory]]).
 - Image `authelia/authelia:4.39.28`. It uses the `cnpg` and `dragonfly` components and depends on [[lldap]] and smtp-relay ([[home-cluster-app-inventory]]).
 - [[memini]] `/v1` and `/mcp` bypass Authelia ([[home-cluster-agents-md]]).
 - Authelia enables an OIDC client only when its fields reach `authelia-secret`. A missing field disables sign-in to that app, not Authelia ([[home-cluster-waitlist-readme]]).
