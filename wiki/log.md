@@ -83,3 +83,6 @@ Find recent entries with `grep '^## \[' wiki/log.md | tail -5`.
 - Updated sources: home-cluster-renovate-review-skill, home-cluster-app-inventory.
 - Updated: renovate-risk-review, app-inventory, security-posture, authelia, gatus, overview.
 - Changes: review skill adds `ruled_out`, operator-image and home-operations rebuild checks, UI-settings rule and a rating-by-effect rule; inventory shows policies for authelia, gatus and kromgo, and many image bumps (still 96 Kustomizations).
+
+## [2026-11-16] lint | Weekly lint, no changes needed
+- No wiki pages changed. `python3 scripts/lint.py` reported 0 errors and 0 warnings.
