@@ -38,6 +38,7 @@ Keep entries in alphabetical order inside each section.
 - [[home-cluster-workstation-setup]] — home-cluster docs: Homebrew tools, kubectl plugins, kubeconfig and talosconfig.
 - [[incident-2026-10-22-seerr-plex-signin]] — Incident: a shared Plex user could not sign in to Seerr; wrong share email.
 - [[incident-2026-10-28-fluent-bit-chart-mirror-403]] — Incident: the charts-mirror Fluent Bit chart denied pulls; moved to the upstream OCI chart.
+- [[incident-2026-11-21-tuppr-drain-dragonfly-spread]] — Incident: a Dragonfly spread rule blocked the tuppr drain; Flux blocked database apps.
 
 ## Entities
 
@@ -63,7 +64,7 @@ Keep entries in alphabetical order inside each section.
 - [[rook-ceph]] — Distributed block storage on 3 NVMe OSDs; health and OSD procedures.
 - [[seerr]] — Media request app at requests.chestr.dev; Plex sign-in checks the share list.
 - [[talos-linux]] — Node OS (1.14, Kubernetes 1.37); config files, Talos commands, rollback.
-- [[tuppr]] — Automated Talos and Kubernetes upgrades gated on Ceph and VolSync.
+- [[tuppr]] — Automated Talos and Kubernetes upgrades gated on Ceph and VolSync; a failed drain leaves the node cordoned.
 - [[udm-pro-max]] — Gateway router; BGP peer ASN 64513, internal DNS, IoT firewall.
 - [[victorialogs]] — Log store that replaced Loki; Fluent Bit collection (upstream OCI chart); VMRule log alerts.
 - [[volsync]] — Daily restic PVC backups to R2; restore task and monthly checks.
@@ -93,6 +94,7 @@ Keep entries in alphabetical order inside each section.
 
 - [[oci-chart-pull-denied]] — An OCIRepository registry denies the chart pull (403); Flux source and CI renders fail.
 - [[seerr-plex-user-cannot-sign-in]] — Seerr refuses a Plex user who is not on the Plex share list with the same email.
+- [[tuppr-upgrade-fails-at-drain]] — A tuppr drain fails and leaves the node cordoned; CNPG replicas stay Pending; Flux blocks apps.
 
 ## SOPs
 

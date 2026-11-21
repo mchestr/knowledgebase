@@ -77,3 +77,10 @@ Find recent entries with `grep '^## \[' wiki/log.md | tail -5`.
 - Updated sources (new versions): home-cluster-add-app-skill, -renovate-review-skill, -renovate-risk-prompt, -agents-md, -readme, -application-deployment, -upgrade-procedures, -claude-code-readme, -claude-code-agent-instructions, -app-inventory.
 - Updated: flux, renovate, renovate-risk-review, app-deployment-pattern, gitops, claude-code-remote-control, cloudflare-terraform, home-cluster, authelia, lldap, security-posture, app-inventory, overview, index.
 - Fixed: the app inventory source page said 18 Kustomizations in `media` at `e36a8c8`; the raw table has 19.
+
+## [2026-11-21] ingest | Incident: the tuppr Talos upgrade stops at the drain, and Flux blocks the database apps
+
+- New raw file: `raw/2026-11-21-incident-tuppr-drain-dragonfly-spread.md`.
+- Created source: incident-2026-11-21-tuppr-drain-dragonfly-spread.
+- Created issue: tuppr-upgrade-fails-at-drain.
+- Updated: tuppr, cloudnative-pg, index.

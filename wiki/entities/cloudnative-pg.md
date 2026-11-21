@@ -4,7 +4,7 @@ type: entity
 kind: software
 aliases: [CNPG, postgres17, immich cluster]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-11-21
 tags: [home-cluster, database, backup]
 ---
 
@@ -19,6 +19,7 @@ The PostgreSQL operator of the [[home-cluster]]. It runs two Clusters, `postgres
 - Manifests: `kubernetes/apps/database/cloudnative-pg/cluster/cluster17.yaml` and `immich.yaml` ([[home-cluster-disaster-recovery]]).
 - Service IP: PostgreSQL `10.0.20.17` ([[home-cluster-networking]]).
 - Instances use `openebs-hostpath` volumes, so they cannot move to another node ([[home-cluster-disaster-recovery]]).
+- A cordoned node leaves its replica `Pending`. Then `database/cloudnative-pg-cluster` fails its health check, and Flux blocks every app that depends on it ([[incident-2026-11-21-tuppr-drain-dragonfly-spread]]).
 - If the primary is on a failed node, CNPG promotes a replica ([[home-cluster-disaster-recovery]]).
 - Backups: WAL and a daily base backup to R2 at `s3://cloudnative-pg/<serverName>/` (barman). `archive_timeout` is `5min`. The `cnpg` component also writes a pg_dump of each app database to the [[home-nas]] every 4 hours ([[home-cluster-disaster-recovery]]).
 - The `cnpg` component adds a database, `${APP}-pguser-secret`, `${APP}-initdb-secret` and a backup CronJob. `CNPG_NAME` defaults to `postgres17`. Make the credentials in 1Password first ([[home-cluster-application-deployment]]).

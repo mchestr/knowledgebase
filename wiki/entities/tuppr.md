@@ -4,7 +4,7 @@ type: entity
 kind: software
 aliases: [TalosUpgrade, KubernetesUpgrade]
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-11-21
 tags: [home-cluster, upgrades]
 ---
 
@@ -19,6 +19,7 @@ A controller from home-operations that upgrades [[talos-linux]] and Kubernetes o
 - Target versions: `kubernetes/apps/system-upgrade/tuppr/upgrades/talos.yaml` and `kubernetes.yaml`. The cluster runs Talos 1.14 and Kubernetes 1.37. [[renovate]] opens PRs to change them. Merging the PR starts the upgrade ([[home-cluster-upgrade-procedures]]).
 - Before each node, tuppr waits for [[rook-ceph]] `HEALTH_OK` and for no running [[volsync]] backup ([[home-cluster-upgrade-procedures]]).
 - Talos upgrades power-cycle each node, so Ceph is degraded for a short time ([[home-cluster-upgrade-procedures]]).
+- If the drain fails, the upgrade Job fails, tuppr deletes the Job and leaves the node cordoned. CNPG replicas on that node stay `Pending`, and Flux blocks the database apps. See [[tuppr-upgrade-fails-at-drain]] ([[incident-2026-11-21-tuppr-drain-dragonfly-spread]]).
 - Bootstrap gets the Talos ISO version from the same `talos.yaml` ([[home-cluster-bootstrap]]).
 
 ## Before you merge an upgrade
