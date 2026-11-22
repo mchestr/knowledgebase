@@ -83,3 +83,10 @@ Find recent entries with `grep '^## \[' wiki/log.md | tail -5`.
 - Updated sources: home-cluster-renovate-review-skill, home-cluster-app-inventory.
 - Updated: renovate-risk-review, app-inventory, security-posture, authelia, gatus, overview.
 - Changes: review skill adds `ruled_out`, operator-image and home-operations rebuild checks, UI-settings rule and a rating-by-effect rule; inventory shows policies for authelia, gatus and kromgo, and many image bumps (still 96 Kustomizations).
+
+## [2026-11-22] ingest | home-cluster at 4c41c3b
+
+- Source: home-cluster commit 4c41c3b. Unattended re-ingest of 1 changed source. New raw file: `raw/2026-11-22-home-cluster-app-inventory-4c41c3b.md`.
+- Updated sources: home-cluster-app-inventory.
+- Updated: app-inventory, authelia, gatus, overview.
+- Changes: image bumps only (still 96 Kustomizations, no policy or dependsOn change).

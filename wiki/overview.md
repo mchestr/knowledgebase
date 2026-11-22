@@ -2,13 +2,13 @@
 title: Overview
 type: overview
 created: 2026-10-18
-updated: 2026-11-15
+updated: 2026-11-22
 tags: []
 ---
 
 # Overview
 
-The knowledge base has one subject so far: the [[home-cluster]], a three-node Kubernetes cluster at home. The sources are its README, its operations docs, `AGENTS.md`, its component READMEs, its Claude agent files, and a generated app inventory ([[app-inventory]]), up to commit `bc9a054`. CI now uses flate instead of flux-local, and the in-cluster agent instructions point to this wiki.
+The knowledge base has one subject so far: the [[home-cluster]], a three-node Kubernetes cluster at home. The sources are its README, its operations docs, `AGENTS.md`, its component READMEs, its Claude agent files, and a generated app inventory ([[app-inventory]]), up to commit `4c41c3b`. CI now uses flate instead of flux-local, and the in-cluster agent instructions point to this wiki.
 
 ## Main themes
 

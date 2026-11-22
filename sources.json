@@ -3,7 +3,7 @@
     "repo": "mchestr/home-cluster",
     "branch": "main",
     "slug_prefix": "home-cluster",
-    "ingested": "bc9a0546169bb64bee4f2312243504a43cce92db",
+    "ingested": "4c41c3be0221cc0272473cfdd00c4a5d520e91b5",
     "paths": [
       "README.md",
       "AGENTS.md",
@@ -24,7 +24,7 @@
           "kubernetes/apps/*",
           "kubernetes/components/*"
         ],
-        "generated": "bc9a0546169bb64bee4f2312243504a43cce92db"
+        "generated": "4c41c3be0221cc0272473cfdd00c4a5d520e91b5"
       }
     ]
   }
