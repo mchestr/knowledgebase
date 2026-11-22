@@ -3,7 +3,7 @@ title: App inventory
 type: synthesis
 question: Which apps run in the home-cluster, and how is each one exposed and backed up?
 created: 2026-10-18
-updated: 2026-11-15
+updated: 2026-11-22
 tags: [home-cluster, inventory]
 ---
 
@@ -11,7 +11,7 @@ tags: [home-cluster, inventory]
 
 ## Answer
 
-The [[home-cluster]] runs 96 Flux Kustomizations in 17 namespaces at commit `bc9a054` ([[home-cluster-app-inventory]]). The table is generated from the manifests. Check the source page for the method limits. Since `e36a8c8` the inventory dropped `jellyfin`, `jellyplex-watched` and `windmill`, and added `silo`. Between `924c31d` and `bc9a054` no app was added or removed; `authelia`, `gatus` and `kromgo` gained NetworkPolicies.
+The [[home-cluster]] runs 96 Flux Kustomizations in 17 namespaces at commit `4c41c3b` ([[home-cluster-app-inventory]]). The table is generated from the manifests. Check the source page for the method limits. Since `e36a8c8` the inventory dropped `jellyfin`, `jellyplex-watched` and `windmill`, and added `silo`. Between `924c31d` and `4c41c3b` no app was added or removed; `authelia`, `gatus` and `kromgo` gained NetworkPolicies.
 
 - Gateway: **external** is `envoy-external` (internet through the [[cloudflare-tunnel]]). internal is `envoy-internal` (LAN, behind [[authelia]]). See [[internal-vs-external-gateway]].
 - Components: `volsync` ([[volsync]] backup), `cnpg` ([[cloudnative-pg]] database), `dragonfly` (Redis-compatible store).
@@ -32,24 +32,24 @@ The [[home-cluster]] runs 96 Flux Kustomizations in 17 namespaces at commit `bc9
 | database | cloudnative-pg-cluster |  |  |  |  |
 | database | cloudnative-pg-roles |  |  |  |  |
 | database | dragonfly | operator:v1.8.0 |  |  |  |
-| default | atuin | atuin:18.24.8 | internal | cnpg |  |
+| default | atuin | atuin:18.25.1 | internal | cnpg |  |
 | default | [[authelia\|authelia]] | authelia:4.39.28 | **external** | cnpg, dragonfly | gateway + apiserver |
-| default | esphome | esphome:2026.10.2 | internal | volsync |  |
-| default | frigate | frigate:0.18.2 | internal | volsync |  |
+| default | esphome | esphome:2026.11.0 | internal | volsync |  |
+| default | frigate | frigate:0.18.3 | internal | volsync |  |
 | default | govee2mqtt | govee2mqtt:latest | internal | volsync |  |
-| default | home-assistant | home-assistant:2026.11.1 | **external** | volsync | gateway |
+| default | home-assistant | home-assistant:2026.11.2 | **external** | volsync | gateway |
 | default | homepage | homepage:v2.8.0 | internal |  |  |
-| default | immich | immich-server:v3.3.6 | **external** | cnpg, dragonfly | gateway + apiserver |
+| default | immich | immich-server:v3.4.2 | **external** | cnpg, dragonfly | gateway + apiserver |
 | default | [[lldap\|lldap]] | lldap:v0.6.3-alpine-rootless | internal | cnpg |  |
 | default | matter-server | python-matter-server:8.1.0 | internal | volsync |  |
-| default | mosquitto | eclipse-mosquitto:2.0.22 |  | volsync |  |
-| default | paperless | paperless-ngx:3.4.2 | internal | cnpg, dragonfly, volsync | gateway |
-| default | radicale | docker-radicale:3.9.1.0 | **external** | volsync | gateway + apiserver |
-| default | smtp-relay | maddy:0.9.7 |  |  | other |
-| default | teslamate | teslamate:4.4.0 | internal | cnpg |  |
+| default | mosquitto | eclipse-mosquitto:2.0.23 |  | volsync |  |
+| default | paperless | paperless-ngx:3.5.1 | internal | cnpg, dragonfly, volsync | gateway |
+| default | radicale | docker-radicale:3.9.2.0 | **external** | volsync | gateway + apiserver |
+| default | smtp-relay | maddy:0.9.8 |  |  | other |
+| default | teslamate | teslamate:4.5.0 | internal | cnpg |  |
 | default | thelounge | thelounge:4.5.2 | internal | volsync |  |
 | default | zigbee2mqtt | zigbee2mqtt:2.14.3 | internal | volsync |  |
-| default | zwave-js-ui | zwave-js-ui:11.26.2 | internal | volsync |  |
+| default | zwave-js-ui | zwave-js-ui:11.27.0 | internal | volsync |  |
 | external-secrets | external-secrets | external-secrets |  |  |  |
 | external-secrets | onepassword | connect-api:1.8.4 |  |  |  |
 | external-secrets | onepassword-store |  |  |  |  |
@@ -68,25 +68,25 @@ The [[home-cluster]] runs 96 Flux Kustomizations in 17 namespaces at commit `bc9
 | kube-system | node-feature-discovery-rules |  |  |  |  |
 | kube-system | reloader | reloader |  |  |  |
 | kube-system | spegel | spegel |  |  |  |
-| media | autobrr | autobrr:v1.90.0 | internal | cnpg |  |
+| media | autobrr | autobrr:v1.91.1 | internal | cnpg |  |
 | media | bazarr | bazarr:1.6.2 | internal | cnpg, volsync |  |
 | media | cross-seed | cross-seed:6.13.9 |  | volsync |  |
 | media | jellyseerr | seerr:v3.5.2 | **external** | cnpg, volsync | gateway + apiserver |
 | media | kometa | kometa:v2.5.5 |  | volsync |  |
 | media | plex | plex:1.43.5.11079 | **external** | volsync |  |
-| media | prowlarr | prowlarr:3.0.1.5752 | internal | cnpg |  |
+| media | prowlarr | prowlarr:3.0.2.5780 | internal | cnpg |  |
 | media | qbittorrent | qbittorrent:5.3.0 | internal | volsync |  |
-| media | radarr | radarr:7.0.2.10888 | internal | cnpg |  |
+| media | radarr | radarr:7.0.3.10918 | internal | cnpg |  |
 | media | recyclarr | recyclarr:8.8.1 |  | volsync |  |
 | media | sabnzbd | sabnzbd:5.1.3 | internal | volsync |  |
-| media | silo | silo-server:build-2210 | internal | cnpg, dragonfly |  |
-| media | sonarr | sonarr:5.0.0.2941 | internal | cnpg |  |
+| media | silo | silo-server:build-2903 | internal | cnpg, dragonfly |  |
+| media | sonarr | sonarr:5.0.0.2997 | internal | cnpg |  |
 | media | subs | plex-manager:0.12.0 | **external** | cnpg, dragonfly | gateway + apiserver |
 | media | tautulli | tautulli:2.19.1 | internal | volsync |  |
 | media | tqm | tqm:1.20.0 |  |  |  |
 | media | unpackerr | unpackerr:v1.0.1 |  |  |  |
 | media | whisper | openai-whisper-asr-webservice:v1.10.0 |  |  |  |
-| networking | cloudflared | cloudflared:2026.11.0 |  |  |  |
+| networking | cloudflared | cloudflared:2026.11.1 |  |  |  |
 | networking | [[envoy-gateway\|envoy]] | gateway-helm | **external**, internal |  |  |
 | networking | external-dns-cloudflare | external-dns |  |  |  |
 | networking | external-dns-unifi | external-dns; external-dns-unifi-webhook:v0.9.0 |  |  |  |
@@ -100,7 +100,7 @@ The [[home-cluster]] runs 96 Flux Kustomizations in 17 namespaces at commit `bc9
 | observability | [[kube-prometheus-stack\|kube-prometheus-stack]] | kube-prometheus-stack | internal |  | apiserver |
 | observability | silence-operator | silence-operator |  |  |  |
 | observability | silence-operator-crds | silence-operator-crds |  |  |  |
-| observability | unpoller | unpoller:v5.9.5 |  |  |  |
+| observability | unpoller | unpoller:v5.10.0 |  |  |  |
 | observability | victoria-logs | victoria-logs-single | internal |  |  |
 | observability | victoria-metrics-operator | victoria-metrics-operator |  |  |  |
 | openebs-system | openebs | openebs |  |  |  |
@@ -109,7 +109,7 @@ The [[home-cluster]] runs 96 Flux Kustomizations in 17 namespaces at commit `bc9
 | rook-ceph | rook-ceph | rook-ceph |  |  |  |
 | rook-ceph | rook-ceph-cluster | rook-ceph-cluster | internal |  |  |
 | rook-ceph | rook-ceph-csi-drivers | ceph-csi-drivers |  |  |  |
-| system-upgrade | etcd-defrag | talosctl:v1.14.5 |  |  |  |
+| system-upgrade | etcd-defrag | talosctl:v1.14.6 |  |  |  |
 | system-upgrade | [[tuppr\|tuppr]] | tuppr |  |  |  |
 | system-upgrade | tuppr-upgrades |  |  |  |  |
 | volsync-system | snapshot-controller | snapshot-controller |  |  |  |
