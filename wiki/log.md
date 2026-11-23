@@ -90,3 +90,7 @@ Find recent entries with `grep '^## \[' wiki/log.md | tail -5`.
 - Updated sources: home-cluster-app-inventory.
 - Updated: app-inventory, authelia, gatus, overview.
 - Changes: image bumps only (still 96 Kustomizations, no policy or dependsOn change).
+
+## [2026-11-23] lint | weekly health check
+
+- No pages changed. `scripts/lint.py` reported 0 errors and 0 warnings. The content pass found no new contradictions or stale claims.
